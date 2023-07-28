@@ -1,0 +1,68 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  6.3 Footer Style 3
+/*----------------------------------------*/
+
+.#{$theme-prifix}-footer{
+    $self : &;
+    &-style-3{
+        #{$self}{
+            &-social{
+                & a{
+                    &:hover{
+                        background-color: var(--tp-theme-brown);
+                        border-color: var(--tp-theme-brown);
+                    }
+                }
+            }
+            &-widget{
+                &-title{
+                    margin-bottom: 15px;
+                }
+                & ul{
+                    & li{
+                        & a{
+                            &:hover{
+                                color: var(--tp-theme-brown);
+                                &::after{
+                                    background-color: var(--tp-theme-brown);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &-talk{
+                & h4{
+        
+                    & a{
+                        &:hover{
+                            color: var(--tp-theme-brown);
+                        }
+                    }
+        
+                }
+            }
+            &-contact{
+                &-content{
+                    & p{
+                        & a{
+                            &:hover{
+                                color: var(--tp-theme-brown);
+                            }
+                        }
+                    }
+                }
+            }
+            &-copyright{
+                & p{
+                    
+                    & a{
+                        color: var(--tp-theme-brown);
+                    }
+                }
+            }
+        }
+    }
+}

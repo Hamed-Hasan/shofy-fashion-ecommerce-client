@@ -1,0 +1,570 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  8.5 Banner CSS CSS
+/*----------------------------------------*/
+
+.#{$theme-prifix}-banner{
+    $self : &;
+
+    &-item{
+        padding: 52px 60px 32px;
+        border-radius: 8px;
+
+        @media #{$xs}{
+            padding: 52px 34px 32px;
+        }
+        &:hover{
+            #{$self}{
+                &-thumb{
+                    @include transform(scale(1.05));
+                }
+            }
+        }
+
+        &.has-square{
+            border-radius: 0;
+            #{$self}{
+                &-thumb{
+                    border-radius: 0;
+                }
+            }
+        }
+
+        &-sm{
+            padding: 50px 40px;
+
+            #{$self}{
+                &-title{
+                    font-size: 20px;
+                    line-height: 1.3;
+                    margin-bottom: 5px;
+
+                    & a{
+                        &:hover{
+                            color: var(--tp-common-black);
+                        }
+                    }
+                }
+                &-content{
+                    & p{
+                        margin-bottom: 31px;
+                    }
+                }
+                &-btn{
+                    & .#{$theme-prifix}-link-btn{
+                        &:hover{
+                            color: var(--tp-common-black)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &-btn{
+        & .#{$theme-prifix}-link-btn{
+            @extend %tp-ff-roboto;
+        }
+    }
+
+    &-content{
+        & span{
+            @extend %tp-ff-roboto;
+            font-size: 16px;
+            color: var(--tp-common-black);
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        & p{
+            @extend %tp-ff-roboto;
+            font-weight: 500;
+            font-size: 16px;
+            color: var(--tp-common-black);
+        }
+    }
+
+    &-title{
+        @extend %tp-ff-roboto;
+        font-weight: 500;
+        font-size: 28px;
+        line-height: 1.29;
+        margin-bottom: 22px;
+
+        & a{
+            &:hover{
+                color: var(--tp-theme-primary);
+            }
+        }
+    }
+
+    &-thumb{
+        @extend %bg-thumb;
+        border-radius: 8px;
+        z-index: -1;
+    }
+
+    &-height{
+        min-height: 260px;
+    }
+}
+
+
+.#{$theme-prifix}-product-banner{
+    $self-banner : &;
+    &-slider{
+        border-radius: 8px;
+
+        &-active{
+            & .swiper-slide-active{
+                & #{$self-banner}{
+                    &-title,
+                    &-subtitle,
+                    &-content p,
+                    &-price,
+                    &-btn a{
+                        @include animation-name();
+                    }
+                    &-thumb{
+                        & img{
+                            @include animation-name(fadeInRight);
+                        }
+                        &-gradient{
+                            @include animation-name(fadeInRight);
+                        }
+                        &-shape{
+                            .tp-offer-shape{
+                                @include animation-name(fadeInRight);
+                            }
+                        }
+                    }
+                }
+    
+            }
+        }
+
+        &-dot{
+            &.#{$theme-prifix}-swiper-dot{
+                position: absolute;
+                right: 50px;
+                left: auto;
+                bottom: 50%;
+                @include transform(translateY(50%));
+                z-index: 1;
+                width: auto;
+                display: flex;
+                flex-direction: column;
+
+                &.#{$theme-prifix}-swiper-dot{
+                   
+                    .swiper-pagination-bullet{
+                        margin: 3px 0;
+                        background-color: rgba($color: #fff, $alpha: .2);                    
+                        &.swiper-pagination-bullet-active{
+                            background-color: var(--tp-common-white);
+                        }
+                    }
+                }
+                
+            }
+        }
+            
+    }
+    &-inner{
+        border-radius: 8px;
+        padding: 64px 80px 69px;
+
+        @media #{$sm}{
+            padding: 64px 50px 69px;
+        }
+
+        @media #{$xs}{
+            padding: 34px 20px 69px;
+        }
+    }
+    &-bg-text{
+        position: absolute;
+        bottom: -10%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        margin: auto;
+        @extend %tp-ff-roboto;
+        font-weight: 900;
+        font-size: 340px;
+        text-transform: uppercase;
+        color: var(--tp-common-white);
+        opacity: 0.04;
+        margin-bottom: 0;
+        line-height: .7;
+        z-index: -1;
+    }
+    &-subtitle{
+        @extend %tp-ff-roboto;
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: rgba($color: #fff, $alpha: .8);
+        @include animation-control(.3s);
+        display: inline-block;
+
+    }
+    &-title{
+        @extend %tp-ff-roboto;
+        font-weight: 800;
+        font-size: 54px;
+        line-height: 1.15;
+        margin-bottom: 22px;
+        color: var(--tp-common-white);
+        margin-bottom: 10px;
+        @include animation-control(.5s);
+
+        @media #{$md}{
+            font-size: 45px;
+        }
+        @media #{$sm, $xs}{
+            font-size: 35px;
+        }
+
+
+
+        & a{
+            &:hover{
+                color: var(--tp-theme-primary);
+            }
+        }
+    }
+    &-price{
+        @include animation-control(.7s);
+        & span,
+        & p{
+            @extend %tp-ff-roboto;
+            font-weight: 500;
+        }
+        & .price{
+            font-size: 40px;
+            line-height: 1;
+            letter-spacing: -0.04em;
+        }
+
+        & .old-price{
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: -0.02em;
+            text-decoration-line: line-through;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        & .new-price{
+            font-size: 40px;
+            line-height: 30px;
+            letter-spacing: -0.04em;
+            color:var(--tp-common-white);
+
+            @media #{$xs}{
+                font-size: 35px;
+            }
+
+        }
+    }
+    &-btn{
+        & .tp-btn{
+            @include animation-control(.9s);
+            background-color: var(--tp-common-black);
+            padding: 10px 41px 8px;
+
+            &:hover{
+                background-color: var(--tp-common-white);
+                color: var(--tp-common-black);
+            }
+        }
+    }
+    &-thumb{
+        &-wrapper{
+            @media #{$sm, $xs}{
+                margin-top: 50px;
+            }
+        }
+        &-gradient{
+            position: absolute;
+            top: -6%;
+            left: 0%;
+            width: 400px;
+            height: 400px;
+            display: inline-block;
+            @include tp-gradient((50% 50% at 50% 50%, rgba(171, 215, 255, 0.25) 0%, rgba(3, 76, 219, 0.35) 100%), "radial");
+            border-radius: 50%;
+            @include animation-control(1.3s);
+        }
+        &-shape{
+            & .tp-offer-shape{
+                position: absolute;
+                top: -8%;
+                left: 30%;
+                z-index: 11;
+                @include animation-control(1.1s);
+            }
+        }
+        & img{
+            @include animation-control(1.1s);
+
+            @media #{$xs}{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+// home 2 banner start
+.#{$theme-prifix}-banner{
+    $self3 : &;
+    &-item-2{
+        min-height: 280px;
+        padding: 65px 48px 55px;
+        @media #{$xl, $lg}{
+            padding: 65px 25px 55px;
+        }
+        @media #{$xs}{
+            min-height: 250px;
+            padding: 49px 29px 45px;
+        }
+
+        &:hover{
+            #{$self3}{
+                &-thumb-2{
+                    @include transform(scale(1.1));
+                }
+            }
+        }
+    }
+    &-thumb-2{
+        @extend %bg-thumb;
+        z-index: -1;
+
+        @media #{$xs}{
+            background-position: center left;
+        }
+    }
+    &-title-2{
+        font-weight: 400;
+        font-size: 36px;
+        line-height: 1.17;
+        margin-bottom: 20px;
+        & a{
+            &:hover{
+                color: var(--tp-theme-secondary);
+            }
+        }
+    }
+    &-btn-2{
+
+    }
+}
+
+
+//home 4 banner
+.#{$theme-prifix}-banner{
+    $self4: &;
+    &-item-4{
+        &:hover{
+            #{$self4}{
+                &-thumb-4{
+                    @include transform(scale(1.1));
+                }
+            }
+        }
+
+        &.sm-banner{
+            @media #{$sm, $xs}{
+                margin-bottom: 24px;
+            }
+            #{$self4}{
+                &-content-4{
+                    top: 30px;
+                }
+            } 
+        }
+        &.has-green{
+            #{$self4}{
+                &-content-4{
+                    & span{
+                        color: #72AD3E;
+                    }
+                }
+            }
+        }
+
+        &.has-brown{
+            #{$self4}{
+                &-content-4{
+                    & span{
+                        color: var(--tp-theme-brown);
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+    &-height-4{
+        min-height: 288px;
+    }
+    &-title-4{
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 1.2;
+        margin-bottom: 20px;
+
+        @media #{$xs}{
+            font-size: 25px;
+        }
+    }
+    &-thumb-4{
+        @extend %bg-thumb;
+        z-index: -1;
+    }
+    &-content-4{
+        position: absolute;
+        top: 52px;
+        left: 38px;
+        right: 38px;
+
+        @media #{$xs}{
+            top: 30px;
+            left: 20px;
+            right: 20px;
+        }
+        & span{
+            font-size: 16px;
+            color: #2061E3;
+            display: inline-block;
+            margin-bottom: 2px;
+        }
+    }
+    &-btn-4{
+        & .tp-btn{
+            border-color: rgba($color: $black, $alpha: .1);
+            padding: 4px 21px;
+
+            &:hover{
+                background-color: var(--tp-common-black);
+                border-color: var(--tp-common-black);
+                color: var(--tp-common-white);
+            }
+        }
+    }
+    &-full{
+        $self5 : &;
+
+        @media #{$md}{
+            min-height: 470px;
+            margin-top: 24px;
+        }
+        @media #{$sm, $xs}{
+            min-height: 470px;
+            margin-top: 0;
+        }
+        &:hover{
+            #{$self5}{
+                &-thumb{
+                    @include transform(scale(1.1));
+                }
+            }
+        }
+        &-height{
+            height: 100%;
+
+        }
+        &-thumb{
+            @extend %bg-thumb;
+            z-index: -1;
+            &::after{
+                position: absolute;
+                content: '';
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba($color: $black, $alpha: .1);
+            }
+        }
+        &-content{
+            position: absolute;
+            bottom: 60px;
+            left: 60px;
+            right: 60px;
+
+            @media #{$xs}{
+                left: 30px;
+                right: 30px;
+            }
+            & span{
+                font-size: 16px;
+                color: var(--tp-common-white);
+                display: inline-block;
+                margin-bottom: 2px;
+            }
+        }
+        &-title{
+            font-weight: 400;
+            font-size: 40px;
+            line-height: 1.05;
+            margin-bottom: 30px;
+            color: var(--tp-common-white);
+
+            @media #{$xs}{
+                font-size: 35px;
+            }
+        }
+        &-btn{
+            & .tp-btn{
+                border-color: rgba($color: $white, $alpha: .3);
+                padding: 4px 21px;
+                color: var(--tp-common-white);;
+                &:hover{
+                    background-color: var(--tp-common-white);
+                    border-color: var(--tp-common-white);
+                    color: var(--tp-common-black);
+                }
+            }
+        }
+    }
+}
+
+
+//home 5 banner
+.#{$theme-prifix}-best-banner{
+    &-slider-dot-5{
+        position: absolute;
+        width: auto;
+        bottom: 33px;
+        left: 50%;
+        @extend %translateX1_2;
+        z-index: 1;
+        .swiper-pagination-bullet{
+            width: 8px;
+            height: 8px;
+            background-color: rgba($color: #678E61, $alpha: .2);
+            & button{
+                font-size: 0;
+            }
+            
+            &.swiper-pagination-bullet-active{
+                background-color: var(--tp-theme-green);
+            }
+        }
+
+    }
+    &-5{
+        border-radius: 16px;
+        overflow: hidden;
+    }
+    &-item-5{
+        min-height: 560px;
+    }
+    &-thumb-5{
+        @extend %bg-thumb;
+    }
+}

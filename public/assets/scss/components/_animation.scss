@@ -1,0 +1,115 @@
+@use '../utils' as *;
+/*----------------------------------------*/
+/*  2.4 Animations
+/*----------------------------------------*/
+
+/* pulse effect animation */
+
+
+@include keyframes(tp-pulse){
+	0% {
+		-moz-box-shadow: 0 0 0 0 rgba(255,255,255, 0.4);
+		box-shadow: 0 0 0 0 rgba(255,255,255, 0.4);
+	}
+	70% {
+		-moz-box-shadow: 0 0 0 45px rgba(255,255,255, 0);
+		box-shadow: 0 0 0 45px rgba(255,255,255, 0);
+	}
+	100% {
+		-moz-box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+		box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+		}
+}
+
+@include keyframes(tp-pulse-2){
+	0% {
+		-moz-box-shadow: 0 0 0 0 rgba(255,255,255, 0.4);
+		box-shadow: 0 0 0 0 rgba(255,255,255, 0.4);
+	}
+	70% {
+		-moz-box-shadow: 0 0 0 45px rgba(255,255,255, 0);
+		box-shadow: 0 0 0 45px rgba(255,255,255, 0);
+	}
+	100% {
+		-moz-box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+		box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+		}
+}
+
+
+@include keyframes(tp-shake){
+	10%, 90% {
+		-webkit-transform: translate3d(-1px, 0, 0);
+		transform: translate3d(-1px, 0, 0);
+	  }
+	  20%, 80% {
+		-webkit-transform: translate3d(2px, 0, 0);
+		transform: translate3d(2px, 0, 0);
+	  }
+	  30%, 50%, 70% {
+		-webkit-transform: translate3d(-4px, 0, 0);
+		transform: translate3d(-4px, 0, 0);
+	  }
+	  40%, 60% {
+		-webkit-transform: translate3d(4px, 0, 0);
+		transform: translate3d(4px, 0, 0);
+	  }
+}
+
+@include keyframes(borderanimate2){
+    0% {
+        transform: translate(-50%, -50%) scale(.8);
+    }
+	60%{
+		opacity: 1;
+	}
+      100% {
+        transform: translate(-50%, -50%) scale(2.5);
+        opacity: 0;
+      }
+}
+
+@include keyframes(tp-rotate-center){
+    0% {
+		@include transform(rotate(0));
+    }
+    100% {
+		@include transform(rotate(360deg));
+    }
+}
+
+@include keyframes(tp-mobile-view){
+    0%, 10% {
+		@include transform(translateY(0%));
+    }
+	50%, 60%{
+		@include transform(translateY(-57%));
+	}
+	90%, 100%{
+		@include transform(translateY(0%));
+	}
+}
+
+@include keyframes(tp-svg-line){
+	100%{
+		stroke-dashoffset: 350;
+	}
+}
+
+
+
+
+@include keyframes(tp-border-loader){
+	0%{
+		stroke-dashoffset: -356px; 
+		stroke-dasharray: 356px, 366px;
+	}
+	95%{
+		stroke-dashoffset: 0; 
+		stroke-dasharray: 356px, 366px;
+	}
+	100%{
+		stroke-dashoffset: 0; 
+		stroke-dasharray: 0, 366px;
+	}
+}

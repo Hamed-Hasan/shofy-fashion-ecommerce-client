@@ -1,0 +1,333 @@
+@use '../../utils' as *;
+/*----------------------------------------*/
+/*  8.2 Cartmini CSS START
+/*----------------------------------------*/
+
+.cartmini{
+    $self : &;
+    &__style-darkRed{
+        #{$self}{
+            &__shipping{
+                & .progress-bar{
+                    background-color: var(--tp-theme-secondary);
+                }
+            }
+            &__price{
+                color: var(--tp-theme-secondary);
+            }
+
+            &__checkout-btn{
+                & .tp-btn{
+                    &:hover{
+                        background-color: var(--tp-theme-secondary);
+                        border-color: var(--tp-theme-secondary);
+                    }
+                }
+            }
+            &__del,
+            &__title a{
+                &:hover{
+                    color: var(--tp-theme-secondary);
+                }
+            }
+        }
+    }
+    &__style-brown{
+        #{$self}{
+            &__shipping{
+                & .progress-bar{
+                    background-color: var(--tp-theme-brown);
+                }
+            }
+            &__price{
+                color: var(--tp-theme-brown);
+            }
+
+            &__checkout-btn{
+                & .tp-btn{
+                    &:hover{
+                        background-color: var(--tp-theme-brown);
+                        border-color: var(--tp-theme-brown);
+                    }
+                }
+            }
+            &__del,
+            &__title a{
+                &:hover{
+                    color: var(--tp-theme-brown);
+                }
+            }
+        }
+    }
+    &__style-green{
+        #{$self}{
+            &__shipping{
+                & .progress-bar{
+                    background-color: var(--tp-theme-green);
+                }
+            }
+            &__price{
+                color: var(--tp-theme-green);
+            }
+
+            &__checkout-btn{
+                & .tp-btn{
+                    &:hover{
+                        background-color: var(--tp-theme-green);
+                        border-color: var(--tp-theme-green);
+                    }
+                }
+            }
+            &__del,
+            &__title a{
+                &:hover{
+                    color: var(--tp-theme-green);
+                }
+            }
+        }
+    }
+    &__area{
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 380px;
+        height: 100%;
+        @include transform(translateX(calc(100% + 80px)));
+        background: var(--tp-common-white)  none repeat scroll 0 0;
+        @include tp-transition-mul((0.45s ease-in-out, opacity .45s ease-in-out));
+        z-index: 99999;
+        @media #{$xs}{
+            width: 320px;
+        }
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none; /* for Chrome, Safari, and Opera */
+        }
+        &.cartmini-opened{
+            @include transform(translateX(0));
+        }
+    }
+    &__wrapper{
+        position: relative;
+        min-height: 100%;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    &__top{
+        &-title{
+            padding: 20px 0;
+            border-bottom: 1px solid var(--tp-border-primary);
+            & h4{
+                font-size: 16px;
+                text-transform: capitalize;
+                font-weight: 600;
+                margin-bottom: 0;
+            }
+        }
+    }
+	&__close{
+		position: absolute;
+		top: 17px;
+		right: 0;
+		&-btn{
+			background: transparent;
+			color: var(--tp-common-black);
+			font-size: 22px;
+			&:hover{
+				@include transform(rotate(90deg));
+			}
+		}
+	}
+    &__shipping{
+        padding: 15px 0;
+        border-bottom: 1px solid var(--tp-border-primary);
+        & .progress{
+            height: 10px;
+            border-radius: 0;
+            &-bar{
+                background-color: var(--tp-theme-primary);
+            }
+        }
+
+        & p{
+            margin-bottom: 5px;
+            & span{
+                color: var(--tp-pink-1);
+                font-weight: 600;
+            }
+        }
+    }
+    &__widget{
+        height: calc(100vh - 380px);
+        overflow-y: scroll;
+        overscroll-behavior-y: contain;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none; /* for Chrome, Safari, and Opera */
+        }
+        &-item{
+            position: relative;
+            display: flex;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(129,129,129,.2);
+
+            &:last-child{
+                border-bottom: 0;
+            }
+        }
+    }
+    &__thumb{
+        border: 1px solid var(--tp-border-primary);
+        margin-right: 15px;
+        & img{
+            width: 70px;
+            height: auto;
+        }
+    }
+    &__title{
+        font-size: 15px;
+        margin-bottom: 4px;
+        font-weight: 500;
+        & a{
+            &:hover{
+                color: var(--tp-theme-primary);
+            }
+        }
+    }
+    &__content{
+        padding-right: 18px;
+        & .#{$theme-prifix}-product-quantity{
+            width: 75px;
+            padding: 0;
+
+            .#{$theme-prifix}-cart-input[type="text"] {
+                height: 30px;
+                text-align: center;
+                font-size: 13px;
+                border: 1px solid var(--tp-border-primary);
+                background-color: var(--tp-common-white);
+                padding: 0;
+            }
+
+            .#{$theme-prifix}-cart-plus, 
+            .#{$theme-prifix}-cart-minus {
+                width: 20px;
+                height: 30px;
+                line-height: 30px;
+                display: inline-block;
+                text-align: center;
+                font-size: 13px;
+                left: 3px;
+                & svg{
+                    @include transform(translateY(-1px));
+                    width: 10px;
+                }
+
+                &::after{
+                    display: none;
+                }
+            }
+
+            & .#{$theme-prifix}-cart-plus{
+                left: auto;
+                right: 3px;
+            }
+        }
+
+    }
+    &__del{
+        position: absolute;
+        top: 15px;
+        right: 0;
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        text-align: center;
+        color: var(--tp-common-black);
+        font-size: 14px;
+        &:hover{
+            color: var(--tp-theme-primary);
+        }
+    }
+    &__checkout{
+        padding-top: 15px;
+        padding-bottom: 85px;
+        width: 100%;
+        background: var(--tp-common-white);
+        border-top: 2px solid var(--tp-border-primary);
+        &-title{
+            & h4{
+                font-size: 15px;
+                display: inline-block;
+                font-weight: 500;
+                margin-bottom: 0;
+                text-transform: capitalize;
+            }
+            & span{
+                float: right;
+                font-size: 15px;
+                color: var(--tp-common-black);
+                font-weight: 500;
+            }
+        }
+        &-btn{
+
+            & .#{$theme-prifix}-btn{
+                font-size: 15px;
+                text-transform: capitalize;
+                padding: 10px 30px;
+                text-align: center;
+                &:hover{
+                    background-color: var(--tp-theme-primary);
+                    color: var(--tp-common-white);
+                    border-color: var(--tp-theme-primary);
+                }
+                &-border{
+                    &:hover{
+                        background-color: var(--tp-theme-primary);
+                        color: var(--tp-common-white);
+                        border-color: var(--tp-theme-primary);
+                    }
+                }
+                
+            }
+        }
+    }
+    &__price{
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--tp-theme-primary);
+    }
+    &__quantity{
+        font-size: 12px;
+        font-weight: 500;
+    }
+    &__empty{
+        margin-top: 150px;
+
+        & img{
+            margin-bottom: 30px;
+        }
+
+        & p{
+            font-size: 16px;
+            color: var(--tp-common-black);
+            margin-bottom: 15px;
+        }
+
+        .#{$theme-prifix}-btn{
+            background-color: var(--tp-grey-1);
+            font-size: 15px;
+            text-transform: capitalize;
+            color: var(--tp-common-black);
+            padding: 10px 30px;
+            text-align: center;
+            &:hover{
+                background-color: var(--tp-common-black);
+                color: var(--tp-common-white);
+            }
+        }
+    }
+}

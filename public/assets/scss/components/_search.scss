@@ -1,0 +1,226 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  2.16 Search css start
+/*----------------------------------------*/
+
+.#{$theme-prifix}-search{
+    $self :&;
+    &-area{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 9999999;
+        background-color: var(--tp-common-white);
+        padding: 40px 15px;
+        visibility: visible;
+        opacity: 0;
+        transform: translateY(-120%);
+        @extend %tp-transition;
+        &.opened{
+            transform: translateY(0%);
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+    &-input{
+        position: relative;
+        & button{
+            position: absolute;
+            top: 54%;
+            right: 20px;
+            @include transform(translateY(-50%));
+            font-size: 24px;
+
+            &:hover{
+                color: var(--tp-theme-primary);
+            }
+        }
+    }
+    &-category{
+        & span{
+            color: var(--tp-common-black);
+        }
+
+        & a{
+            &:hover{
+                color: var(--tp-theme-primary);
+            }
+        }
+    }
+    &-close{
+        display: none;
+        &-btn{
+            border-radius: 50%;
+            background: #ECECEC;
+            border: 9px solid transparent;
+            color: var(--tp-common-black);
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+
+            &::after,
+            &::before{
+                content: '';
+                position: absolute;
+                height: 1px;
+                width: 90%;
+                top: 46%;
+                left: 1px;
+                transform-origin: 50% 50%;
+                background-color: var(--tp-common-black);
+                opacity: 1;
+                -moz-transition: -moz-transform ease 0.25s;
+                -webkit-transition: -webkit-transform ease 0.25s;
+                -o-transition: -o-transform ease 0.25s;
+                -ms-transition: -ms-transform ease 0.25s;
+                transition: transform ease 0.25s;
+            }
+
+            &::before{
+                transform: rotate(45deg);
+            }
+            &::after{
+                transform: rotate(-45deg);
+            }
+
+            &:hover{
+                &::before{
+                    transform: rotate(-45deg);
+                }
+                &::after{
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+    &-style-blur{
+        background-color: rgba($color: $white, $alpha: .1);
+        backdrop-filter: blur(14px);
+
+        #{$self}{
+            &-input{
+                & input{
+                    background-color: transparent;
+                    border-color: rgba($color: $white, $alpha: .1);
+                    color: var(--tp-common-white);
+                    @include tp-placeholder{
+                        color: rgba($color: $white, $alpha: .3);
+                    }
+
+                    &:focus{
+                        border-color: rgba($color: $white, $alpha: .5);
+                    }
+                }
+                & button{
+                    color: var(--tp-common-white);
+                    opacity: .6;
+
+                    &:hover{
+                        opacity: 1;
+                    }
+                }
+            }
+            &-category{
+                & span{
+                    color: rgba($color: $white, $alpha: .7);
+                }
+                & a{
+                    color: rgba($color: $white, $alpha: .7);
+                    &:hover{
+                        color: var(--tp-common-white);
+                    }
+                }
+            }
+            &-close{
+                &-btn{
+                    background-color: transparent;
+                    color: rgba($color: $white, $alpha: .7);
+
+                    &::after,
+                    &::before{
+                        background-color: rgba($color: $white, $alpha: .7);
+                    }
+
+                    &:hover{
+                        &::after,
+                        &::before{
+                            background-color: rgba($color: $white, $alpha: 1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-style-secondary{
+        #{$self}{
+            &-input{
+                & button{
+
+                    &:hover{
+                        color: var(--tp-theme-secondary);
+                    }
+                }
+            }
+            &-category{
+                & a{
+                    &:hover{
+                        color: var(--tp-theme-secondary);
+                    }
+                }
+            }
+        }
+    }
+    &-style-brown{
+        #{$self}{
+            &-input{
+                & button{
+
+                    &:hover{
+                        color: var(--tp-theme-brown);
+                    }
+                }
+            }
+            &-category{
+                & a{
+                    &:hover{
+                        color: var(--tp-theme-brown);
+                    }
+                }
+            }
+        }
+    }
+    &-style-green{
+        #{$self}{
+            &-input{
+                & input{
+                    border-radius: 30px;
+
+                }
+                & button{
+
+                    &:hover{
+                        color: var(--tp-theme-green);
+                    }
+                }
+            }
+            &-category{
+                & a{
+                    &:hover{
+                        color: var(--tp-theme-green);
+                    }
+                }
+            }
+            &-close{
+                &-btn{
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,300 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  7.3 Feature CSS
+/*----------------------------------------*/
+
+
+.#{$theme-prifix}-feature{
+    $self: &;
+    &-item{
+        padding: 29px 40px 25px;
+        background-color: var(--tp-grey-1);
+
+        @media #{$xl}{
+            padding: 29px 25px 25px;
+        }
+
+        @media #{$sm}{
+            padding: 29px 19px 25px;
+        }
+
+    }
+    &-icon{
+        & span{
+            display: inline-block;
+            font-size: 24px;
+            color: var(--tp-pink-1);
+            min-width: 30px;
+            & svg{
+                @extend %tp-svg-y-2;
+            }
+        }
+    }
+    &-title{
+        @extend %tp-ff-roboto;
+        font-size: 16px;
+        margin-bottom: 0;
+
+    }
+    &-content{
+        & p{
+            @extend %tp-ff-roboto;
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+    }
+    &-border-radius{
+        & .row{
+            & [class*="col-"]{
+                &:first-child{
+                    #{$self}{
+                        &-item{
+                            border-top-left-radius: 8px;
+                            border-bottom-left-radius: 8px;
+                        }
+                    }
+                }
+                &:last-child{
+                    #{$self}{
+                        &-item{
+                            border-top-right-radius: 8px;
+                            border-bottom-right-radius: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.#{$theme-prifix}-feature{
+    $self2 : &;
+    &-border-2{
+        & .row{
+            & [class*="col-"]{
+                & #{$self2}{
+                    &-item-2{
+                        position: relative;
+                        @media #{$xs}{
+                            padding-bottom: 20px;
+                            margin-bottom: 20px;
+                        }
+                        &::after{
+                            position: absolute;
+                            content: '';
+                            right: 14px;
+                            top: 42%;
+                            width: 1px;
+                            height: 50px;
+                            background-color: #D9DBDE;
+                            @extend %translateY1_2;
+
+                            @media #{$md, $sm}{
+                                display: none;
+                            }
+                        }
+                    }
+                }
+                &:last-child{
+                    & #{$self2}{
+                        &-item-2{
+                            @media #{$xs}{
+                                padding-bottom: 0;
+                                margin-bottom: 0;
+                            }
+                            &::after{
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+                &:nth-child(1),
+                &:nth-child(2),
+                &:nth-child(3){
+                    
+                    & #{$self2}{
+                        &-item-2{
+                            @media #{$md, $sm, $xs}{
+                                padding-bottom: 20px;
+                                margin-bottom: 20px;
+                                &::after{
+                                    right: auto;
+                                    left: 0;
+                                    top: auto;
+                                    bottom: 0;
+                                    width: 85%;
+                                    height: 1px;
+                                    display: block;
+                                }
+
+                            }
+                        }
+                    }
+                }
+                &:nth-child(3){
+                    & #{$self2}{
+                        &-item-2{
+                            @media #{$md, $sm}{
+                                padding-bottom: 0;
+                                margin-bottom: 0;
+                            }
+                            &::after{
+                                @media #{$md, $sm}{
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-inner-2{
+        background: var(--tp-common-white);
+        border: 1px solid #E9EAEC;
+        padding: 30px 40px 23px;
+    }
+    
+    &-title-2{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        color: var(--tp-common-black);
+        margin-bottom: 2px;
+        line-height: 1;
+    }
+    &-icon-2{
+        & span{
+            font-size: 35px;
+            color: var(--tp-common-black);
+        }
+    }
+    &-content-2{
+       & p{
+            font-size: 14px;
+            margin-bottom: 0;
+            line-height: 1.3;
+       }
+    }
+}
+
+.#{$theme-prifix}-feature{
+    $self3 : &;
+    &-style-2{
+        #{$self3}{
+            &-inner-2{
+                padding: 0;
+                border: 0;
+            }
+            &-icon-2{
+                & span{
+                    color: var(--tp-theme-brown);
+                }
+            }
+            &-title-2{
+                margin-bottom: 4px;
+            }
+        }
+    }
+    &-border-3{
+        #{$self3}{
+            &-item-2{
+                position: relative;
+
+                &:not(:last-child){
+                    &::after{
+                        position: absolute;
+                        content: "";
+                        right: -42%;
+                        top: 42%;
+                        width: 1px;
+                        height: 50px;
+                        background-color: #E9EAED;
+                        @extend %translateY1_2;
+    
+                        @media #{$lg}{
+                            right: -20%;
+                        }
+    
+                        @media #{$md, $sm, $xs}{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.#{$theme-prifix}-feature{
+    $self5 : &;
+    &-border-5{
+        & .row{
+            & [class*="col-"]{
+                & #{$self5}{
+                    &-item-5{
+                        position: relative;
+                        @media #{$xs}{
+                            margin-bottom: 20px;
+                        }
+                        &::after{
+                            position: absolute;
+                            content: '';
+                            right: 14px;
+                            top: 42%;
+                            width: 1px;
+                            height: 50px;
+                            background-color: #EAEBED;
+                            @extend %translateY1_2;
+
+                            @media #{$md, $sm, $xs}{
+                                display: none;
+                            }
+                        }
+                    }
+                }
+                &:nth-child(1),
+                &:nth-child(2){
+                    @media #{$md, $sm}{
+                        margin-bottom: 20px;
+                    }
+                }
+                &:last-child{
+                    & #{$self5}{
+                        &-item-5{
+                            @media #{$xs}{
+                                padding-bottom: 0;
+                                margin-bottom: 0;
+                            }
+                            &::after{
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-inner-5{
+        padding: 24px 43px;
+        border: 2px solid #EAEBED;
+        border-radius: 16px;
+    }
+    &-title-5{
+        font-weight: 400;
+        font-size: 18px;
+        margin-bottom: 0;
+    }
+    &-icon-5{
+        & span{
+            font-size: 22px;
+            color: var(--tp-theme-green);
+            margin-right: 10px;
+            & svg{
+                @extend %tp-svg-y-2;
+            }
+        }
+    }
+}

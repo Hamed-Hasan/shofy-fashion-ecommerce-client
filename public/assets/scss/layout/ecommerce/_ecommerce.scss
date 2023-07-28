@@ -1,0 +1,78 @@
+@use '../../utils' as *;
+/*----------------------------------------*/
+/*  8.1 Ecommerce Common START
+/*----------------------------------------*/
+
+
+.#{$theme-prifix}-product-quantity{
+    $self : &;
+    
+    &-product-quantity{
+        width: 148px;
+        position: relative;
+    }
+
+    &-cart-plus,
+    &-cart-minus{
+        width: 45px;
+        height: 44px;
+        line-height: 44px;
+        display: inline-block;
+        text-align: center;
+        font-size: 16px;
+        color: var(--tp-common-black);
+        position: absolute;
+        top: 50%;
+        left: 0;
+        @include tp-transition();
+        @include transform(translateY(-50%));
+        
+        &::after{
+            position: absolute;
+            content: '';
+            width: 1px;
+            height: 26px;
+            top: 50%;
+            right: 0;
+            background-color: #DADCE0;
+            @include transform(translateY(-50%));
+        }
+        
+        & svg{
+            @include transform(translateY(-2px));
+        }
+        &:hover{
+            cursor: pointer;
+            color: var(--tp-theme-primary);
+        }
+        
+        &#{$self}-cart-plus{
+            left: auto;
+            right: 0;
+        
+            &::after{
+                left: 0;
+                right: auto;
+            }
+        }
+
+    }
+    &-cart-input{
+        &[type="text"]{
+            width: 100%;
+            height:44px;
+            text-align: center;
+            font-size: 14px;
+            border: 1px solid #DADCE0;
+            background-color: var(--tp-common-white);
+            padding: 0 45px;
+        
+            @include rtl{
+                text-align: center;
+            }
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+}

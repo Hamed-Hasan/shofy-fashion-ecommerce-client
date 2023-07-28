@@ -1,0 +1,53 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  2.1 Back to top
+/*----------------------------------------*/
+
+
+.back-to-top-wrapper{
+	position: fixed;
+    right: 50px;
+    bottom: 0;
+    height: 44px;
+    width: 44px;
+    cursor: pointer;
+    display: block;
+    border-radius: 50%;
+    z-index: 99;
+	opacity: 0;
+	visibility: hidden;
+	@extend %tp-transition-common;
+
+	@media #{$xs}{
+		right: 20px;
+		bottom: 20px;
+	}
+	&.back-to-top-btn-show{
+		visibility: visible;
+		opacity: 1;
+		bottom: 50px;
+	}
+}
+
+.back-to-top-btn{
+	display: inline-block;
+	width: 44px;
+	height: 44px;
+	line-height: 44px;
+	text-align: center;
+	background: var(--tp-common-black);
+	box-shadow: 0px 8px 16px rgba(3, 4, 28, 0.3);
+	color: var(--tp-common-white);
+	border-radius: 50%;
+	@extend %tp-transition-transform;
+
+	& svg{
+		@include transform(translateY(-2px));
+	}
+
+	&:hover{
+		@include transform(translateY(-4px));
+	}
+
+}

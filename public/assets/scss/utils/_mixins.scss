@@ -1,0 +1,167 @@
+    @use "sass:selector";
+
+    @mixin tp-root($child) {
+        @at-root #{selector.unify(&, $child)} {
+            @content;
+        }
+    }
+
+    @mixin rtl{
+        [dir=rtl] & {
+          @content;
+        }
+    }
+
+    @mixin dark{
+        [tp-theme=tp-theme-dark] & {
+          @content;
+        }
+    }
+
+    // bg color
+    @mixin bg-color($value, $opacity) {
+        background-color: rgba($color: $value, $alpha: $opacity);
+    }
+        
+
+    // placeholder input
+    @mixin tp-placeholder {
+        &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            @content;
+        }
+        &::-moz-placeholder { /* Firefox 19+ */
+            @content;
+        }
+        &:-moz-placeholder { /* Firefox 4-18 */
+            @content;
+        }
+        &:-ms-input-placeholder { /* IE 10+  Edge*/
+            @content;
+        }
+        &::placeholder{ /* MODERN BROWSER */
+            @content;
+        }
+    }
+
+    // gradient 
+    @mixin tp-gradient($value, $type : "linear") {
+
+        @if $type == linear {
+            background-image: -webkit-linear-gradient($value);
+            background-image: -moz-linear-gradient($value);
+            background-image: -ms-linear-gradient($value);
+            background-image: -o-linear-gradient($value);
+            background-image:   linear-gradient($value);
+          } @else {
+            background-image: -webkit-radial-gradient($value);
+            background-image: -moz-radial-gradient($value);
+            background-image: -ms-radial-gradient($value);
+            background-image: -o-radial-gradient($value);
+            background-image:   radial-gradient($value);
+          }
+       
+    }
+
+    // animate 
+    @mixin animation($property) {
+        -webkit-animation: $property;
+           -moz-animation: $property;
+            -ms-animation: $property;
+             -o-animation: $property;
+                animation: $property;
+    }
+
+    // filter 
+    @mixin filter($value) {
+        -webkit-filter: $value;
+        filter: $value;
+    }
+
+    // appearance for select
+    @mixin appearance($value) {
+        -webkit-appearance: $value;
+        -moz-appearance: $value;
+        -ms-appearance: $value;
+        -o-appearance: $value;
+        appearance: $value;
+    }
+    
+    // keyframes 
+    @mixin keyframes($name) {
+        @-webkit-keyframes #{$name} {
+            @content; 
+        }
+        @-moz-keyframes #{$name} {
+            @content;
+        }
+        @-ms-keyframes #{$name} {
+            @content;
+        }
+        @keyframes #{$name} {
+            @content;
+        } 
+    }
+
+    //backgroud 
+    @mixin background {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+      
+    // transition specific
+    @mixin tp-transition($property: all, $time: .3s,  $func : ease-out, $delay : 0s) {
+        -webkit-transition: $property $time $delay $func;
+        -moz-transition: $property $time $delay $func;
+        -ms-transition: $property $time $delay $func;
+        -o-transition: $property $time $delay $func;
+        transition: $property $time $delay $func;
+    }
+      
+    // transition multiple
+    @mixin tp-transition-mul($property) {
+        -webkit-transition: $property;
+        -moz-transition: $property;
+        -ms-transition: $property;
+        -o-transition: $property;
+        transition: $property ;
+    }
+    
+    
+    // transform
+    @mixin transform($transforms) {
+        -webkit-transform: $transforms;
+        -moz-transform: $transforms;
+        -ms-transform: $transforms;
+        -o-transform: $transforms;
+        transform: $transforms;
+    }
+    
+    @mixin animation-name($name: fadeInUp, $fill : both) {    
+        animation-name: $name;
+        animation-fill-mode: $fill;
+    }
+    
+    @mixin animation-control($time: .3s , $duration : 1s) {
+        animation-delay: $time;
+        animation-duration: $duration;
+    }
+
+    // sentence case
+    @mixin sentence-case() {
+        text-transform: lowercase;
+        &:first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    // Flexbox display
+    @mixin flexbox() {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+    }
+        
+    

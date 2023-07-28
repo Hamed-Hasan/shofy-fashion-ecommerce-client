@@ -1,0 +1,85 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  8.22 compare CSS
+/*----------------------------------------*/
+
+.tp-compare{
+    &-table{
+      & td,
+      & th{
+        vertical-align: middle;
+        border: 1px solid rgba($color: $black, $alpha: .1);
+        padding: 15px 25px;
+      }
+    }
+    &-thumb{
+      width: 205px;
+      margin: auto;
+      & img{
+        margin-bottom: 15px;
+        max-width: 100%;
+      }
+    }
+    &-product-title{
+      font-size: 18px;
+      font-weight: 500;
+      & a{
+        &:hover{
+          color: var(--tp-theme-primary);
+        }
+      }
+    }
+    &-desc{
+      & p{
+        margin-bottom: 0;
+        line-height: 1.3;
+        font-size: 15px;
+      }
+    }
+    &-rating{
+        @include flexbox();
+        align-items: center;
+        justify-content: center;
+      & span{
+        font-size: 14px;
+        color: var(--tp-yellow-1);
+      }
+    }
+    &-price{
+        & span{
+            font-size: 14px;
+            color: $black;
+            font-weight: 500;
+            margin-right: 7px;
+            &.old-price{
+                color: #8c8c8c;
+                text-decoration: line-through;
+            }
+        }
+    }
+    &-add-to-cart{
+        & .tp-btn{
+            padding: 5px 18px;
+            background-color: transparent;
+            color: var(--tp-common-black);
+
+            &:hover{
+                background-color: var(--tp-theme-primary);
+                border-color: var(--tp-theme-primary);
+                color: var(--tp-common-white);
+            }
+        }
+    }
+    &-remove{
+      & button{
+        background: transparent;
+        font-size: 16px;
+        color: var(--tp-common-black);
+  
+        &:hover{
+          color: var(--tp-theme-primary);
+        }
+      }
+    }
+  }

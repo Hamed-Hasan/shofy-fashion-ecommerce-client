@@ -1,0 +1,362 @@
+@use '../../utils' as *;
+/*----------------------------------------*/
+/*  3.1 Header Style 1
+/*----------------------------------------*/
+
+
+.#{$theme-prifix}-header{
+    &-sticky{
+        &.header-sticky{
+            
+            position: fixed !important;
+            left: 0;
+            margin: auto;
+            top: 0;
+            width: 100%;
+            z-index: 99;
+            -webkit-animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+            animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+            box-shadow: 0px 2px 6px rgba(1, 15, 28, 0.16);
+            background: var(--tp-common-white);
+        }
+        &-area{
+            position: fixed;
+            top: -100%;
+            left: 0;
+            right: 0;
+            width: 100%;
+            box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.07);
+            z-index: 99;
+            
+            -webkit-box-shadow: 0px 4px 10px rgba(3, 4, 28, 0.1);
+            box-shadow: 0px 4px 10px rgba(3, 4, 28, 0.1);
+            background: var(--tp-common-white);
+            visibility: hidden;
+            opacity: 0;
+
+            @media #{$md, $sm, $xs}{
+                padding-top: 15px;
+                padding-bottom: 15px;
+            }
+            & .main-menu.menu-style-1 > nav > ul > li > a{
+                padding: 20px 0;
+            }
+
+            &.header-sticky-2{
+                top: 0;
+                visibility: visible;
+                opacity: 1;
+                -webkit-animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+                animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+            }
+        }
+    }
+    &-transparent{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 9;
+    }
+    &-welcome{
+        & span{
+            margin-right: 10px;
+            color: var(--tp-yellow-1);
+
+            & svg{
+                @extend %tp-svg-y-1;
+            }
+        }
+        & p{
+            @extend %tp-ff-roboto;
+            font-weight: 500;
+            font-size: 13px;
+            color: var(--tp-common-white);
+            opacity: 0.8;
+            margin-bottom: 0;
+        }
+    }
+    &-top{
+        &-menu{
+            &-item{
+                position: relative;
+                padding: 3px 14px 4px 18px;
+                border-right: 1px solid rgba($color: $white, $alpha: .2);
+                & > span{
+                    position: relative;
+                    display: inline-block;
+                    font-weight: 500;
+                    font-size: 13px;
+                    @extend %tp-ff-roboto;
+                    color: var(--tp-common-white);
+                    padding-right: 20px;
+                    &::after{
+                        position: absolute;
+                        content: '\f107';
+                        font-family: var(--tp-ff-fontawesome);
+                        margin-left: 7px;
+                    }
+
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+                & ul{
+                    position: absolute;
+                    top: 125%;
+                    right: 0;
+                    z-index: 1;
+                    background-color: var(--tp-common-white);
+                    padding: 10px 15px;
+                    box-shadow: 0px 1px 3px rgba(3, 4, 28, 0.12);
+                    visibility: hidden;
+                    opacity: 0;
+                    min-width: max-content;
+                    @include tp-transition($time:.2s);
+
+                    &.#{$theme-prifix}-lang-list-open,
+                    &.#{$theme-prifix}-currency-list-open,
+                    &.#{$theme-prifix}-setting-list-open{
+                        top: 100%;
+                        visibility: visible;
+                        opacity: 1;
+                    }
+
+                    & li{
+                        list-style: none;
+                        & a{
+                            @extend %tp-ff-roboto;
+                            font-size: 14px;
+                            color: var(--tp-common-black);
+    
+                            &:hover{
+                                color: var(--tp-theme-primary);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-search{
+        @media #{$lg}{
+            padding-left: 0;
+            margin-right: 30px;
+        }
+        &-wrapper{
+            position: relative;
+            border: 2px solid var(--tp-theme-primary);
+            margin-left: 10px;
+        }
+        &-box{
+            width: 58%;
+            @media #{$lg}{
+                width: 50%;
+            }
+            & input{
+                padding-left: 25px;
+                padding-right: 25px;
+                width: 100%;
+                height: 46px;
+                background-color: var(--tp-common-white);
+                color: var(--tp-common-black);
+                @extend %tp-ff-roboto;
+                border: 0;
+                @include tp-placeholder{
+                    color: var(--tp-text-1);
+                }
+            }
+        }
+        &-category{
+            position: relative;
+            &::after{
+                position: absolute;
+                content: '';
+                left: 0;
+                top: 48%;
+                @include transform(translateY(-50%));
+                width: 1px;
+                height: 20px;
+                background-color: rgba($color: $black, $alpha: .3);
+            }
+            & .nice-select{
+                border: 0;
+                height: 46px;
+                line-height: 46px;
+                font-size: 14px;
+                @extend %tp-ff-roboto;
+                color: var(--tp-common-black);
+                padding-right: 20px;
+            }
+        }
+        &-btn{
+            position: absolute;
+            top: 0;
+            right: 0;
+            & button{
+                width: 60px;
+                height: 46px;
+                line-height: 46px;
+                background-color: var(--tp-theme-primary);
+                color: var(--tp-common-white);
+
+                & svg{
+                    @extend %tp-svg-y-2;
+                }
+            }
+        }
+    }
+    &-login{
+        &-icon{
+            & span{
+                display: inline-block;
+                height: 44px;
+                width: 44px;
+                line-height: 40px;
+                text-align: center;
+                border: 2px solid rgba($color: $black, $alpha: .1);
+                border-radius: 50%;
+                margin-right: 10px;
+
+                & svg{
+                    @extend %tp-svg-y-2;
+                }
+                & a{
+                    display: inline-block
+                }
+            }
+        }
+        &-content{
+            @include  transform(translateY(-3px));
+            & span{
+                @extend %tp-ff-roboto;
+                font-size: 12px;
+                font-weight: 500;
+                display: inline-block;
+                color: var(--tp-text-1);
+                line-height: 1;
+            }
+        }
+        &-title{
+            @extend %tp-ff-roboto;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 0;
+            line-height: 1;
+        }
+    }
+    &-main{
+        padding-top: 27px;
+        padding-bottom: 27px;
+
+        @media #{$md, $sm, $xs}{
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+    }
+    &-bottom{
+        &-border{
+            border-top: 1px solid rgba($color: $black, $alpha: .1);
+        }
+    }
+    &-action{
+        @media #{$lg}{
+            margin-left: 25px;
+        }
+        &-item{
+            &:not(:first-child){
+                margin-left: 20px;
+            }
+            &:last-child{
+                margin-right: 10px;
+            }
+        }
+        &-btn{
+            font-size: 20px;
+            color: var(--tp-common-black);
+            position: relative;
+            display: inline-block;
+            &:hover{
+                color: var(--tp-theme-primary);
+            }
+        }
+        &-badge{
+            position: absolute;
+            top: -6px;
+            right: -13px;
+            display: inline-block;
+            width: 23px;
+            height: 23px;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: var(--tp-pink-1);
+            color: var(--tp-common-white);
+            @extend %tp-ff-roboto;
+            font-size: 12px;
+            font-weight: 700;
+            border: 2px solid var(--tp-common-white);
+        }
+    }
+    &-contact{
+        &-icon{
+            & span{
+                color: var(--tp-theme-primary);
+                margin-right: 10px;
+
+                & svg{
+                    @extend %tp-svg-y-2;
+                }
+            }
+        }
+        &-content{
+            & h5{
+                @extend %tp-ff-roboto;
+                color: var(--tp-text-2);
+                font-size: 12px;
+                font-weight: 500;
+                margin-bottom: 2px;
+                line-height: 1;
+            }
+            & p{
+                @extend %tp-ff-roboto;
+                font-weight: 500;
+                font-size: 14px;
+                color: var(--tp-common-black);
+                margin-bottom: 0;
+                line-height: 1;
+                & a{
+                    &:hover{
+                        color: var(--tp-theme-primary);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+.#{$theme-prifix}-header{
+    &-height{
+        @media #{$md, $sm, $xs}{
+            height: auto !important;
+        }
+    }
+}
+
+.tp-header-login-icon{
+    & .login_text{
+        font-size: 18px;
+        font-weight: 500;
+    }
+}
+
+.tp-header-login-icon{
+   & span a img{
+        object-fit: cover;
+        border-radius: 50%;
+        transform: translateY(-2px) translateX(1px);
+    }
+}

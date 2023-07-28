@@ -1,0 +1,192 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  8.12 Product Card Style 4 CSS
+/*----------------------------------------*/
+
+.#{$theme-prifix}-product{
+    $self : &;
+    &-item-4{
+        &:hover{
+            #{$self}{
+                &-price-4{
+                    visibility: hidden;
+                    opacity: 0;
+                }
+                &-add-to-cart-4{
+                    visibility: visible;
+                    opacity: 1;
+                    @include transform(translateY(0px));
+                }
+
+                &-action-4{
+                    visibility: visible;
+                    opacity: 1;
+                    right: 20px;
+                }
+                &-thumb-4{
+                    & img{
+                        @include transform(scale(1.1));
+                    }
+                }
+            }
+        }
+    }
+    &-action{
+        &-4{
+            position: absolute;
+            top: 20px;
+            right: 0;
+            bottom: auto;
+            z-index: 1;
+            visibility: hidden;
+            opacity: 0;
+            @extend %tp-transition;
+
+            @media #{$xs}{
+                top: 30px;
+            }
+
+            &.has-shadow{
+                & .tp-product-action-btn-3{
+                    box-shadow: 0px 1px 1px rgba(1, 15, 28, 0.1);
+                    border: 0;
+                }
+            }
+
+            & .tp-product-action-btn-3{
+                box-shadow: none;
+            }
+        }
+    }
+    &-thumb-4{
+        position: relative;
+        margin-bottom: 21px;
+        background-color: #F6F6F6;
+        & img{
+            @extend %tp-transition;
+        }
+    }
+    &-title-4{
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 1;
+        margin-bottom: 2px;
+
+        & a{
+            &:hover{
+                color: var(--tp-theme-brown);
+            }
+        }
+
+    }
+    &-info-4{
+        & p{
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+    }
+    &-price{
+        &-4{
+            font-weight: 500;
+            font-size: 16px;
+            color: var(--tp-common-black);
+            display: inline-block;
+            @extend %tp-transition;
+            &.old-price{
+                font-size: 14px;
+                text-decoration: line-through;
+                color: var(--tp-text-2);
+                font-weight: 400;
+            }
+        }
+    }
+    &-add-to-cart-4{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        background-color: var(--tp-common-white);
+        font-weight: 500;
+        font-size: 16px;       
+        color: var(--tp-common-black);
+        visibility: hidden;
+        opacity: 0;
+        @extend %tp-transition;
+        @include transform(translateY(10px));
+        & svg{
+            @extend %tp-svg-y-3;
+        }
+        &:hover{
+            color: var(--tp-theme-brown);
+        }
+        
+    }
+}
+
+.#{$theme-prifix}-best{
+    $selfbe : &;
+    &-slider{
+        & .#{$theme-prifix}-swiper-scrollbar{
+            background-color: #D3D8DD;
+            width: calc(100% - 600px );
+            margin: auto;
+            @media #{$lg}{
+                width: calc(100% - 300px );
+            }
+            @media #{$md}{
+                width: calc(100% - 200px );
+            }
+            @media #{$sm}{
+                width: calc(100% - 100px );
+            }
+            @media #{$xs}{
+                width: 100%;
+            }
+        }
+    }
+    &-item-4{
+        &:hover{
+            & .tp-product-price-wrapper-4{
+                visibility: hidden;
+                opacity: 0;
+            }
+            #{$selfbe}{
+                &-add-to-cart-btn{
+                    visibility: visible;
+                    opacity: 1;
+                    @include transform(translateY(0px));
+                }
+            }
+        }
+    }
+    &-price{
+        position: relative;
+
+        @at-root{
+            .tp-product-price-wrapper-4{
+                @extend %tp-transition;
+            }
+        }
+    }
+    &-add-to-cart-btn{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        background-color: var(--tp-common-white);
+        font-weight: 500;
+        font-size: 16px;       
+        color: var(--tp-common-black);
+        visibility: hidden;
+        opacity: 0;
+        @extend %tp-transition;
+        @include transform(translateY(10px));
+        & svg{
+            @extend %tp-svg-y-3;
+        }
+        &:hover{
+            color: var(--tp-theme-brown);
+        }
+    }
+}
