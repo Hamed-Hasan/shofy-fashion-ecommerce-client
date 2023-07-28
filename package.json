@@ -1,0 +1,49 @@
+{
+  "name": "shofy-client",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^3.1.0",
+    "@popperjs/core": "^2.11.6",
+    "@react-oauth/google": "^0.11.0",
+    "@reduxjs/toolkit": "^1.9.3",
+    "@stripe/react-stripe-js": "^2.1.0",
+    "@stripe/stripe-js": "^1.52.1",
+    "bootstrap": "^5.2.3",
+    "dayjs": "^1.11.7",
+    "eslint": "8.36.0",
+    "eslint-config-next": "13.2.4",
+    "js-cookie": "^3.0.5",
+    "next": "13.2.4",
+    "react": "18.2.0",
+    "react-copy-to-clipboard": "^5.1.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.43.9",
+    "react-modal": "^3.16.1",
+    "react-modal-video": "^2.0.0",
+    "react-paginate": "^8.2.0",
+    "react-range": "^1.8.14",
+    "react-range-slider-input": "^3.0.7",
+    "react-redux": "^8.0.5",
+    "react-simple-star-rating": "^5.1.7",
+    "react-slick": "^0.29.0",
+    "react-spinners": "^0.13.8",
+    "react-timer-hook": "^3.0.5",
+    "react-to-print": "^2.14.12",
+    "react-toastify": "^9.1.2",
+    "react-use": "^17.4.0",
+    "sass": "^1.59.3",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^9.1.1",
+    "yup": "^1.1.1"
+  },
+  "devDependencies": {
+    "typescript": "5.0.4"
+  }
+}
