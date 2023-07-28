@@ -1,0 +1,75 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  7.7 Brand CSS
+/*----------------------------------------*/
+
+.#{$theme-prifix}-brand{
+    &-slider{
+        &-active{
+            padding-top: 1px;
+            padding-right: 2px;
+        }
+        &-arrow{
+            & button{
+                position: absolute;
+                top: 50%;
+                left: 0;
+                @include transform(translate(-50%, -50%));
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                background: var(--tp-common-white);
+                box-shadow: 0px 2px 3px rgba(1, 15, 28, 0.14);
+                
+                @media #{$xs}{
+                    @include transform(translate(0%, -50%));
+                }
+                z-index: 1;
+                &.tp-brand-slider-button-next{
+                    left: auto;
+                    right: 0;
+                    @include transform(translate(50%, -50%));
+
+                    @media #{$xs}{
+                        @include transform(translate(0%, -50%));
+                    }
+                }
+                & svg{
+                    @extend %tp-svg-y-2;
+                }
+
+                &:hover{
+                    background-color: var(--tp-common-black);
+                    color: var(--tp-common-white);
+                }
+            }
+        }
+    }
+    &-item{
+        border: 1px solid #EDEFF2;
+        border-right: 0;
+        background-color: var(--tp-common-white);
+        min-height: 120px;
+        line-height: 120px;
+
+        & a{
+            display: block;
+
+            &:hover{
+                background-color: rgba($color: $black, $alpha: .02);
+            }
+        }
+        & img{
+            opacity: .6;
+            @extend %tp-transition;
+        }
+
+        &:hover{
+            & img{
+                opacity: 1;
+            }
+        }
+    }
+}

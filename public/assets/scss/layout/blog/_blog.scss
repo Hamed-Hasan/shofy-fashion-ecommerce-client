@@ -1,0 +1,202 @@
+@use '../../utils' as *;
+/*----------------------------------------*/
+/*  5.4 Blog css
+/*----------------------------------------*/
+
+.#{$theme-prifix}-blog{
+    &-thumb{
+        border-radius: 8px;
+        height: 270px;
+        border-top-left-radius: 0;
+        margin-bottom: 22px;
+
+        @include tp-root('div'){
+            & img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    &-meta{
+        &-date{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            & span{
+                display: inline-block;
+                padding: 3px 24px 2px;
+                background-color: var(--tp-common-black);
+                @extend %tp-ff-roboto;
+                font-weight: 500;
+                font-size: 14px;
+                color: var(--tp-common-white);
+
+            }
+        }
+    }
+    &-tag{
+        line-height: 1;
+        margin-bottom: 17px;
+        & > span{
+            @extend %tp-ff-roboto;
+            color: var(--tp-theme-primary)
+        }
+        & a{
+            @extend %tp-ff-roboto;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--tp-text-2);
+            &:hover{
+                color: var(--tp-theme-primary)
+            }
+        }
+    }
+    &-title{
+        @extend %tp-ff-roboto;
+        font-weight: 500;
+        font-size: 18px;
+
+        & a{
+            &:hover{
+                color: var(--tp-theme-primary);
+            }
+        }
+    }
+    &-content{
+        & p{
+            @extend %tp-ff-roboto;
+            font-size: 14px;
+            line-height: 1.43;
+            margin-bottom: 30px;
+        }
+    }
+    &-more{
+        position: relative;
+        background-color: var(--tp-common-white);
+        padding-left: 50px;
+        @media #{$sm, $xs}{
+            padding-left: 0;
+        }
+        &-border{
+            position: absolute;
+            right: 0;
+            top: 50%;
+            width: 630px;
+            height: 2px;
+            background-color: var(--tp-border-secondary);
+            z-index: -1;
+
+            @media #{$lg}{
+                width: 470px;
+            }
+
+            @media #{$md}{
+                width: 330px;
+            }
+
+            @media #{$sm, $xs}{
+                display: none;
+            }
+        }
+    }
+}
+
+
+/* home 2 */
+
+.#{$theme-prifix}-blog{
+    $self2 : &;
+    &-item-2{
+        &:hover{
+            #{$self2}{
+                &-thumb-2{
+                    & img{
+                        @include transform(scale(1.1) rotate(4deg));
+                    }
+                }
+            }
+        }
+    }
+    &-title-2{
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 1.33;
+
+        & a{
+            &:hover{
+                color: var(--tp-theme-secondary);
+            }
+        }
+    }
+
+    &-thumb-2{
+        & img{
+            @extend %tp-transition;
+
+            @media #{$sm, $xs}{
+                width: 100%;
+            }
+        }
+    }
+
+    &-content-2{
+        &.has-thumbnail{
+            padding-top: 25px;
+        }
+    }
+    &-meta{
+        &-2{
+            margin-bottom: 4px;
+            & span{
+                color: var(--tp-common-black);
+
+                & svg{
+                    @extend %tp-svg-y-2;
+                }
+            }
+            & a{
+                font-size: 16px;
+                position: relative;
+                &::after{
+                    position: absolute;
+                    content: '';
+                    left: auto;
+                    right: 0;
+                    bottom: 3px;
+                    width: 0;
+                    height: 1px;
+                    background-color: var(--tp-theme-secondary);
+                    @extend %tp-transition;
+                }
+    
+                &:hover{
+                    color: var(--tp-theme-secondary);
+                    &::after{
+                        left: 0;
+                        right: auto;
+                        width: 100%;
+                    }
+                }
+                &:hover{
+                    color: var(--tp-theme-secondary);
+                }
+            }
+        }
+        &-date-2{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1;
+
+            & span{
+                font-size: 14px;
+                line-height: 1;
+                color: var(--tp-common-black);
+                background-color: var(--tp-common-white);
+                padding: 5px 16px;
+            }
+        }
+    }
+}

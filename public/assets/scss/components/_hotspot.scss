@@ -1,0 +1,27 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  2.17 Hostspot css start
+/*----------------------------------------*/
+
+.#{$theme-prifix}-hotspot{
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    font-size: 16px;
+    color: var(--tp-common-black);
+    border-radius: 50%;
+    background-color: var(--tp-common-white);
+    position: absolute;
+    z-index: 1;
+
+    & svg{
+        @extend %tp-svg-y-2;
+    }
+
+    &:hover{
+        cursor: pointer;
+    }
+}

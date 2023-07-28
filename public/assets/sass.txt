@@ -1,0 +1,1 @@
+sass --watch D:\Dropbox\Shahnewaz\shofy\shofy-prv\shofy\assets\scss\main.scss:D:\Dropbox\Shahnewaz\shofy\shofy-prv\shofy\assets\css\main.css

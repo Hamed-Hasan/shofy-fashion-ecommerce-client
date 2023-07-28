@@ -1,0 +1,32 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  8.25 Side Banner CSS
+/*----------------------------------------*/
+
+.#{$theme-prifix}-product-side-banner{
+    padding: 55px 10px 0;
+    border-radius: 16px;
+    margin-right: 56px;
+
+    @media #{$xs}{
+        margin-right: 0;
+    }
+    &-title{
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 1.13;
+        margin-bottom: 30px;
+    }
+    &-subtitle{
+        margin-bottom: 16px;
+    }
+    &-btn{
+        margin-bottom: 52px;
+    }
+    &-thumb{
+        & img{
+            @include transform(translateY(25px));
+        }
+    }
+}

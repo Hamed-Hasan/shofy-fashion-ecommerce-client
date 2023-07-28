@@ -1,0 +1,290 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  4.3 Mobilemenu css
+/*----------------------------------------*/
+
+.#{$theme-prifix}-mobile{
+    &-menu{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background-color: var(--tp-common-white);
+        padding: 13px 0 5px;
+        z-index: 999;
+        border-top: 1px solid var(--tp-border-primary);
+      
+        @extend %tp-transition;
+
+        &.is-sticky{
+            bottom: -120px;
+            visibility: hidden;
+            opacity: 0;
+            &.bottom-menu-sticky{
+                visibility: visible;
+                opacity: 1;
+                bottom: 0;
+            }
+        }
+    }
+    &-item{
+        &-btn{
+            font-size: 28px;
+            text-align: center;
+            & span{
+                display: block;
+                line-height: 1;
+                font-size: 13px;
+                margin-top: 3px;
+            }
+            &:hover{
+                color: var(--tp-common-black);
+            }
+        }
+    }
+}
+
+
+.tp-main-menu-mobile{
+    & .tp-submenu{
+        display: none;
+        &.active{
+            display: block;
+        }
+    }
+
+    & .tp-mega-menu{
+        & .shop-mega-menu-title{
+            margin: 0;
+            padding-top: 7px;
+        }
+        &.shop-mega-menu{
+            padding: 0 !important;
+            padding-left: 19px !important;
+            padding-top: 10px !important;
+        }
+
+        & .shop-mega-menu-img{
+            margin: 7px 0;
+        }
+    }
+    
+
+    & ul{
+        position: static;
+        display: block;
+        box-shadow: none;
+        & li{
+            list-style: none;
+            position: relative;
+            width: 100%;
+            padding: 0;
+            padding-left: 20px;
+            padding-right: 20px;
+            
+            &:not(:last-child){
+                & a{
+                    border-bottom: 1px solid rgba($color: $black, $alpha: .1);
+                }
+            }
+            &.has-dropdown{
+                & > a{
+                    & .dropdown-toggle-btn{
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        @extend %translateY1_2;
+                        font-size: 16px;
+                        color: #7F8387;
+                        @extend %tp-ff-fontawesome;
+                        @extend %tp-transition;
+                        z-index: 1;
+                        width: 30px;
+                        height: 30px;
+                        line-height: 28px;
+                        text-align: center;
+                        border: 1px solid rgba($color: $black, $alpha: .12);
+                        @include tp-transition-mul((background-color .3s ease-in-out, border-color .3s ease-in-out, color .3s ease-in-out));
+                        & i{
+                            @extend %tp-transition;
+                        }
+                        &.dropdown-opened{
+                            & i{
+                                @include transform(rotate(90deg));
+                            }
+                        }
+                        &:hover{
+                            background-color: var(--tp-theme-primary);
+                            border-color: var(--tp-theme-primary);
+                            color: var(--tp-common-white);
+                            & i{
+                                color: var(--tp-common-white);
+                            }
+                        }
+                    }
+                    &.expanded{
+                        color: var(--tp-theme-primary);
+    
+                        & .dropdown-toggle-btn.dropdown-opened{
+                            background-color: var(--tp-theme-primary);
+                            border-color: var(--tp-theme-primary);
+                            color: var(--tp-common-white);
+                            & i{
+                                color: var(--tp-common-white);
+                            }
+                        }
+                    }
+    
+                    
+                }
+                &:hover{
+                    & > a{
+                        &::after{
+                            color: var(--tp-theme-green);
+                        }
+                    }
+                }
+            }
+    
+            &:last-child{
+                & a{
+                    & span{
+                        border-bottom: 0;
+                    }
+                }
+            }
+            & > a{
+                display: block;
+                font-size: 16px;
+                color: var(--tp-common-black);
+                position: relative;
+                padding: 10px 0;
+                padding-right: 20px;
+                & svg{
+                    @extend %tp-svg-y-2;
+                }
+                
+
+                
+                & > i{
+                    display: inline-block;
+                    width: 11%;
+                    margin-right: 13px;
+                    @include transform(translateY(4px));
+                    font-size: 21px;
+                    line-height: 1;
+                }
+                & .menu-text{
+                    font-size: 16px;
+                    line-height: 11px;
+                    border-bottom: 1px solid #EAEBED;
+                    width: 82%;
+                    display: inline-block;
+                    padding: 19px 0 17px;
+                }
+            }
+            & img{
+                width: 100%;
+            }
+            & ul{
+                padding: 0;
+
+                & li{
+                    padding: 0;
+					& a{
+                        margin-left: auto;
+						width: 93%;
+						padding: 10px 5%;
+						text-shadow: none !important;
+						visibility: visible;
+                        padding-left: 0;
+                        padding-right: 20px;
+					}
+
+					& li{
+						& a{
+							width: 88%;
+							padding: 10px 7%;
+                            padding-left: 0;
+                            padding-right: 20px;
+						}
+
+						& li{
+							& a{
+								width: 83%;
+								padding: 10px 9%;
+                                padding-left: 0;
+                                padding-right: 20px;
+							}
+
+							& li{
+								& a{
+									width: 68%;
+									padding: 10px 11%;
+                                    padding-left: 0;
+                                    padding-right: 20px;
+								}
+							}
+						}
+					}
+				}
+            }
+    
+            &:hover{
+                & > a{
+                    color: var(--tp-theme-primary);
+                    &::after{
+                        color: var(--tp-theme-primary);
+                    }
+                    & .dropdown-toggle-btn i{
+                        color: var(--tp-theme-primary);
+                    }
+                }
+    
+                & .mega-menu{
+                    visibility: visible;
+                    opacity: 1;
+                    top: 0;
+                }
+            }
+    
+    
+            & .mega-menu,
+            & .submenu{
+                position: static;
+                min-width: 100%;
+                padding: 0;
+                box-shadow: none;
+                visibility: visible;
+                opacity: 1;
+                display: none;
+
+                & li{
+                    float: none;
+                    display: block;
+                    width: 100%;
+                    padding: 0;
+                    &:hover{
+                        & a{
+                            & .dropdown-toggle-btn{
+                                color: var(--tp-theme-primary);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .tp-main-menu-content ul li:not(:last-child) .home-menu-title a {
+        border-bottom: none;
+    }
+    
+    & *ul,
+    & *li{
+        transition: none !important;
+   }
+   
+}

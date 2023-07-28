@@ -1,0 +1,190 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  6.1 Footer Style 1
+/*----------------------------------------*/
+
+//footer widget style
+.#{$theme-prifix}-footer-widget{
+    &-title{
+        @extend %tp-ff-roboto;
+        font-weight: 700;
+        font-size: 20px;
+        color: var(--tp-common-black);
+        margin-bottom: 10px;
+    }
+    &-content{
+        & ul{
+            & li{
+                list-style: none;
+                &:not(:last-child){
+                    margin-bottom: 7px;
+                }
+                & a{
+                    @extend %tp-ff-roboto;
+                    font-weight: 500;
+                    font-size: 14px;
+                    color: var(--tp-text-2);
+                    position: relative;
+                    padding-left: 10px;
+                    &::after{
+                        position: absolute;
+                        content: '';
+                        left: 0;
+                        top: 6px;
+                        width: 3px;
+                        height: 3px;
+                        background-color: var(--tp-text-2);
+                        border-radius: 50%;
+                        @extend %tp-transition;
+                    }
+
+                    &:hover{
+                        color: var(--tp-theme-primary);
+
+                        &::after{
+                            background-color: var(--tp-theme-primary);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// footer widget content style
+.#{$theme-prifix}-footer{
+    &-logo{
+        margin-bottom: 22px;
+    }
+    &-desc{
+        @extend %tp-ff-roboto;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.44;
+        color: var(--tp-common-black);
+        margin-bottom: 22px;
+    }
+    &-social{
+        & a{
+            display: inline-block;
+            width: 38px;
+            height: 38px;
+            line-height: 38px;
+            text-align: center;
+            background: #FFFFFF;
+            box-shadow: 0px 1px 1px rgba(1, 15, 28, 0.2);
+            border-radius: 6px;
+            margin-right: 5px;
+
+            &:hover{
+                background-color: var(--tp-theme-primary);
+                color: var(--tp-common-white);
+                box-shadow: none;
+            }
+        }
+    }
+    &-talk{
+        & span{
+            @extend %tp-ff-roboto;
+            font-size: 14px;
+            color: var(--tp-text-2);
+            display: inline-block;
+        }
+        & h4{
+            @extend %tp-ff-roboto;
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--tp-common-black);
+
+            & a{
+                &:hover{
+                    color: var(--tp-theme-primary);
+                }
+            }
+
+        }
+    }
+    &-contact{
+        &-icon{
+            & span{
+                display: inline-block;
+                width: 16px;
+                font-size: 16px;
+                color: var(--tp-common-black);
+                margin-right: 10px;
+
+                & svg{
+                    @extend %tp-svg-y-3;
+                }
+            }
+        }
+        &-content{
+            & p{
+                @extend %tp-ff-roboto;
+                font-size: 16px;
+                line-height: 20px;
+                color:  var(--tp-text-2);
+
+                & a{
+                    &:hover{
+                        color: var(--tp-theme-primary);
+                    }
+                }
+            }
+        }
+    }
+    &-copyright{
+        @media #{$sm, $xs}{
+            margin-bottom: 15px;
+        }
+        & p{
+            @extend %tp-ff-roboto;
+            font-size: 14px;
+            color: var(--tp-text-5);
+            margin-bottom: 0;
+            & a{
+                color: var(--tp-theme-primary);
+            }
+        }
+    }
+    &-payment{
+        & p{
+            margin-bottom: 0;
+        }
+    }
+}
+
+// footer bottom
+.#{$theme-prifix}-footer-bottom{
+    &-wrapper{
+        padding-top: 18px;
+        padding-bottom: 40px;
+        border-top: 1px solid rgba($color: $black, $alpha: .1);
+    }
+}
+
+/* footer col design for home 1 */
+.footer-col{
+    &-1{
+        padding-right: 95px;
+
+        @media #{$lg, $md, $sm,$xs}{
+            padding-right: 0;
+        }
+    }
+    &-2{
+        @media #{$md}{
+            padding-left: 25px;
+        }
+    }
+    &-3{
+        padding-left: 35px;
+        @media #{$sm, $xs}{
+            padding-left: 0;
+        }
+    }
+    &-4{
+
+    }
+}

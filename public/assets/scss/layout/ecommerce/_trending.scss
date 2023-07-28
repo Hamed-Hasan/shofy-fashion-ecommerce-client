@@ -1,0 +1,90 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  8.8 Trending CSS START
+/*----------------------------------------*/
+
+
+.#{$theme-prifix}-trending{
+    &-slider{
+        &-dot{
+            & .swiper-pagination-bullet{                
+                &.swiper-pagination-bullet-active{
+                    background-color: var(--tp-theme-secondary);
+                }
+            }
+        }
+    }
+    &-banner{
+        position: relative;
+        height: 630px;
+        @media #{$md}{
+            height: 430px;
+            margin-left: 0;
+            margin-top: 50px;
+        }
+        @media #{$sm}{
+            height: 430px;
+            margin-left: 0;
+            margin-top: 50px;
+        }
+        @media #{$xs}{
+            height: 430px;
+            margin-left: 0;
+            margin-top: 50px;
+        }
+        &::after{
+            position: absolute;
+            content: '';
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            @include tp-gradient((180deg, rgba(1, 15, 28, 0) 44.84%, rgba(1, 15, 28, 0.6) 100%));
+        }
+        &-content{
+            position: absolute;
+            bottom: 40px;
+            left: 35px;
+            z-index: 1;
+
+            @media #{$xs}{
+                bottom: 25px;
+                left: 20px;
+            }
+        }
+        &-title{
+            font-weight: 500;
+            font-size: 30px;
+            line-height: 1.13;
+            color: var(--tp-common-white);
+            margin-bottom: 18px;
+            & a{
+                background-image: linear-gradient(#fff, #fff), linear-gradient(#fff, #fff);
+                background-size: 0% 1px, 0 1px;
+                background-position: 100% 100%, 0 81%;
+                background-repeat: no-repeat;
+                transition: background-size 0.4s linear;
+                &:hover{
+                    background-size: 0 1px, 100% 1px;
+                }
+            }
+        }
+        &-btn{
+
+        }
+        &-thumb{
+            @extend %bg-thumb;
+            @media #{$md, $sm, $xs}{
+                background-position: top center;
+            }
+        }
+    }
+    &-item{
+        & .#{$theme-prifix}-product-action-2{
+            @media #{$lg}{
+                top: 30px;
+            }
+        }
+    }
+}

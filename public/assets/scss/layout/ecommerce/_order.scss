@@ -1,0 +1,223 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  8.20 Order CSS
+/*----------------------------------------*/
+
+.#{$theme-prifix}-order{
+    &-details{
+        $details : &;
+
+        padding: 70px 100px 55px;
+        @media #{$xl}{
+            padding: 70px 70px 55px;
+        }
+        @media #{$lg}{
+            padding: 70px 30px 55px;
+        }
+        @media #{$sm}{
+            padding: 70px 50px 55px;
+        }
+        @media #{$xs}{
+            padding: 40px 30px 45px;
+        }
+        
+        &-icon{
+            margin-bottom: 22px;
+            & span{
+                display: inline-block;
+                width: 120px;
+                height: 120px;
+                line-height: 118px;
+                text-align: center;
+                font-size: 55px;
+                color: var(--tp-common-white);
+                border: 1px solid rgba($color: $white, $alpha: .2);
+                border-radius: 50%;
+
+                & svg{
+                    @extend %tp-svg-y-2;
+                }
+            }
+        }
+        &-title{
+            font-size: 30px;
+            font-weight: 600;
+            color: var(--tp-common-white);
+            margin-bottom: 7px;
+        }
+        &-content{
+            & p{
+                font-size: 16px;
+                color: var(--tp-common-white);
+                line-height: 1.38;
+            }
+        }
+        &-item{
+            margin-bottom: 38px;
+
+            &-wrapper{
+                & .row{
+                    & [class*="col-"]{
+                        &:nth-child(2n){
+                            #{$details}{
+                                &-item{
+                                    padding-left: 40px;
+                                    @media #{$xs}{
+                                        padding-left: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            & h4{
+                font-size: 18px;
+                color: var(--tp-common-white);
+                margin-bottom: 0;
+                font-weight: 400;
+            }
+            & p{
+                font-weight: 700;
+                font-size: 18px;
+                color: var(--tp-common-white);
+                margin-bottom: 0;
+            }
+        }
+    }
+    &-info{
+        &-wrapper{
+            padding: 42px 50px;
+
+            @media #{$lg}{
+                padding: 42px 40px;
+            }
+            @media #{$xs}{
+                padding: 42px 30px;
+            }
+        }
+        &-title{
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+        &-list{
+            $list : &;
+            & ul{
+                & li{
+                    list-style: none;
+                    padding: 15px 0;
+                    @include flexbox();
+                    align-items: center;
+                    justify-content: space-between;
+
+                    &:not(:last-child){
+                        border-bottom: 1px solid #E0E2E3;
+                    }
+                    & span{
+                        font-size: 15px;
+                        color: var(--tp-common-black);
+                    }
+                    &#{$list}{
+                        &-header{
+                            padding-top: 0;
+                            padding-bottom: 12px;
+                            & h4{
+                                font-size: 16px;
+                                font-weight: 500;
+                                margin-bottom: 0;
+                            }
+                        }
+                        &-desc{
+                            & p{
+                                font-size: 15px;
+                                margin-bottom: 0;
+
+                                & span{
+                                    font-size: 15px;
+                                    font-weight: 500;
+                                }
+                            }
+                        }
+                        &-subtotal{
+                            & span{
+                                &:last-child{
+                                    color: var(--tp-theme-primary);
+                                }
+                            }
+                        }
+                        &-shipping{
+                            & span{
+                                & input{
+                                    display: none;
+                
+                                    &:checked{
+                                        & ~ label{
+                                            &::after{
+                                                border-color: var(--tp-theme-primary);
+                                            }
+                                            &::before{
+                                                opacity: 1;
+                                                visibility: visible;
+                                            }
+                                        }
+                                    }
+                                }
+                                & label{
+                                    font-size: 14px;
+                                    position: relative;
+                                    padding-right: 27px;
+
+                                    & span{
+                                        color: var(--tp-theme-primary);
+                                    }
+
+                                    &:hover{
+                                        cursor: pointer;
+                                    }
+                
+                                    &::after{
+                                        position: absolute;
+                                        content: '';
+                                        right: 0;
+                                        top: 5px;
+                                        width: 16px;
+                                        height: 16px;
+                                        border-radius: 50%;
+                                        border: 1px solid #BCBCBC;
+                                        @include tp-transition(all, .2s);
+                                    }
+                                    &::before{
+                                        position: absolute;
+                                        content: '';
+                                        right: 4px;
+                                        top: 9px;
+                                        width: 8px;
+                                        height: 8px;
+                                        border-radius: 50%;
+                                        background-color: var(--tp-theme-primary);
+                                        visibility: hidden;
+                                        opacity: 0;
+                                        @include tp-transition(all, .2s);
+                                    }
+                                }
+                            }
+                        }
+                        &-total{
+                            padding: 14px 0;
+                            & span{
+                                font-size: 16px;
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-inner{
+        background-color: var(--tp-common-white);
+        box-shadow: 0px 30px 70px rgba(1, 15, 28, 0.1);
+    }
+}

@@ -1,0 +1,19 @@
+@use '../../utils' as *;
+/*----------------------------------------*/
+/*  8.3 Cart Modal CSS START
+/*----------------------------------------*/
+.ReactModalPortal {
+	position: fixed;
+	z-index: 99999;
+}
+.ReactModal__Overlay {
+	transform: translateY(50px);
+	transition: .3s;
+}
+.ReactModal__Overlay.ReactModal__Overlay--after-open {
+	transform: translateY(0px);
+}
+
+.ReactModal__Content{
+	max-width: 1200px;
+}

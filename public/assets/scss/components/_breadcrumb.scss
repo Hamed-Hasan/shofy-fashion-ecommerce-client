@@ -1,0 +1,140 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  2.11 Breadcrumb
+/*----------------------------------------*/
+
+.breadcrumb{
+    $self: &;
+    &__title{
+        font-weight: 500;
+        font-size: 44px;
+        line-height: 1;    
+        margin-bottom: 6px;    
+        &-pre{
+            display: inline-block;
+            height: 24px;
+            line-height: 26px;
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: 500;
+            background: var(--tp-theme-primary);
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            padding: 0 7px;
+            margin-bottom: 12px;
+        }
+    }
+    &__list{
+        & span{
+            font-weight: 400;
+            font-size: 16px;
+            position: relative;
+            &:not(:last-child){
+                padding-right: 12px;
+                margin-right: 5px;
+                &::after{
+                    position: absolute;
+                    content: '';
+                    right: 0;
+                    top: 50%;
+                    @extend %translateY1_2;
+                    width: 4px;
+                    height: 4px;
+                    background-color: #A8ACB0;
+                    border-radius: 50%;
+                }
+            }
+            & a{
+                &:hover{
+                    color: var(--tp-theme-primary);
+                }
+            }
+        }
+    }
+    &__overlay{
+        position: relative;
+
+        &::after{
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba($color: $black, $alpha: .5);
+        }
+    }
+    &__style-2{
+        & #{$self}{
+            &__list{
+                & span{
+                    &:last-child{
+                        color: var(--tp-common-black);
+                    }
+                    &.breadcrumb-icon{
+                        padding-right: 0;
+                        margin-right: 0;
+                        & svg{
+                            @include transform(translateY(-3px));
+                        }
+                    }
+                }
+
+                &.has-icon{
+                    & span{
+                        &:nth-child(1){
+                            &::after{
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__style-3{
+        & #{$self}{
+            &__title{
+                color: var(--tp-common-white);
+            }
+            &__list{
+                & span{
+                    color: var(--tp-common-white);
+                    &:last-child{
+                        color: rgba($color: $white, $alpha: .8);
+                    }
+                    &:not(:last-child){
+                        &::after{
+                            background-color: var(--tp-common-white);
+                        }
+                    }
+                    &.breadcrumb-icon{
+                        padding-right: 0;
+                        margin-right: 0;
+                        & svg{
+                            @include transform(translateY(-3px));
+                        }
+                    }
+
+                    & a{
+                        &:hover{
+                            color: var(--tp-common-white);
+                        }
+                    }
+                }
+    
+                &.has-icon{
+                    & span{
+                        &:nth-child(1){
+                            &::after{
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

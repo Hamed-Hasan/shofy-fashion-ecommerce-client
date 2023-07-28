@@ -1,0 +1,109 @@
+@font-face {
+    font-family: "flaticon_shofy";
+    src: url("../fonts/flaticon_shofy.ttf?dee88fc45715450dd1106c3509e3ddac") format("truetype"),
+url("../fonts/flaticon_shofy.woff?dee88fc45715450dd1106c3509e3ddac") format("woff"),
+url("../fonts/flaticon_shofy.woff2?dee88fc45715450dd1106c3509e3ddac") format("woff2"),
+url("../fonts/flaticon_shofy.eot?dee88fc45715450dd1106c3509e3ddac#iefix") format("embedded-opentype");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon_shofy !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-shop:before {
+    content: "\f101";
+}
+.flaticon-store:before {
+    content: "\f102";
+}
+.flaticon-store-1:before {
+    content: "\f103";
+}
+.flaticon-magnifying-glass:before {
+    content: "\f104";
+}
+.flaticon-search:before {
+    content: "\f105";
+}
+.flaticon-search-1:before {
+    content: "\f106";
+}
+.flaticon-heart:before {
+    content: "\f107";
+}
+.flaticon-love:before {
+    content: "\f108";
+}
+.flaticon-heart-1:before {
+    content: "\f109";
+}
+.flaticon-person:before {
+    content: "\f10a";
+}
+.flaticon-user:before {
+    content: "\f10b";
+}
+.flaticon-user-1:before {
+    content: "\f10c";
+}
+.flaticon-menu:before {
+    content: "\f10d";
+}
+.flaticon-menu-1:before {
+    content: "\f10e";
+}
+.flaticon-menu-2:before {
+    content: "\f10f";
+}
+.flaticon-menu-3:before {
+    content: "\f110";
+}
+.flaticon-menu-4:before {
+    content: "\f111";
+}
+.flaticon-watermelon:before {
+    content: "\f112";
+}
+.flaticon-broccoli:before {
+    content: "\f113";
+}
+.flaticon-cupcake:before {
+    content: "\f114";
+}
+.flaticon-bread:before {
+    content: "\f115";
+}
+.flaticon-apple:before {
+    content: "\f116";
+}
+.flaticon-fish:before {
+    content: "\f117";
+}
+.flaticon-snack:before {
+    content: "\f118";
+}
+.flaticon-eggs:before {
+    content: "\f119";
+}
+.flaticon-coffee:before {
+    content: "\f11a";
+}
+.flaticon-pet:before {
+    content: "\f11b";
+}
+.flaticon-basketball-match:before {
+    content: "\f11c";
+}
+.flaticon-milk:before {
+    content: "\f11d";
+}
+.flaticon-vegan:before {
+    content: "\f11e";
+}

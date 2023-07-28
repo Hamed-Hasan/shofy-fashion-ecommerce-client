@@ -1,0 +1,346 @@
+@use '../utils' as *;
+/*-----------------------------------------------------------------------------------
+
+    Template Name: Shofy - Multipurpose eCommerce HTML Template
+    Author: Theme_Pure
+    Support: basictheme400@gmail.com
+    Description: Shofy - Multipurpose eCommerce HTML Template
+    Version: 1.0
+
+-----------------------------------------------------------------------------------
+
+/************ TABLE OF CONTENTS ***************
+
+	-----------------
+    01. THEME CSS
+	-----------------
+		1.1 Theme Default
+		1.2 Common Classes
+		1.3 Default Spacing
+		
+	-----------------
+    02. COMPONENTS css
+	-----------------
+		2.1 Back to top
+		2.2 Theme Settings
+		2.3 Buttons
+		2.4 Animations
+		2.5 Preloader
+		2.6 Background 
+		2.7 Carousel
+		2.8 Nice Select
+		2.9 Pagination
+		2.10 Offcanvas
+		2.11 Breadcrumb
+		2.12 Accordion
+		2.13 Tab
+		2.14 Modal
+		2.15 Section Title
+		2.16 Search
+		2.17 Hotspot
+		2.18 Ragne Slider
+	-----------------
+    03. HEADER CSS
+	-----------------
+		3.1 Header Style 1
+		3.2 Header Style 2
+		3.3 Header Style 3
+		3.4 Header Style 5
+
+    ---------------------------------
+	04. MENU CSS
+	---------------------------------
+		4.1 Main menu css
+		4.2 Meanmenu css
+		4.3 Mobile css
+		4.4 Category menu css
+
+	---------------------------------
+	05. BLOG CSS
+	---------------------------------
+		5.1 Postbox css
+		5.2 Recent Post css
+		5.3 Sidebar css
+		5.4 Blog css
+		5.5 Blog Grid css
+
+	---------------------------------
+	06. FOOTER CSS
+	---------------------------------
+		6.1 Footer Style 1
+		6.2 Footer Style 2
+		6.3 Footer Style 3
+		6.4 Footer Style 4
+		6.5 Footer Style 5
+	
+	---------------------------------
+	07. PAGES CSS
+	---------------------------------
+		7.1 Slider css
+		7.2 About css
+		7.3 Feature css
+		7.4 Subscribe css
+		7.5 Instagram css
+		7.6 Testimonial css
+		7.7 Brand css
+		7.8 CTA css
+		7.9 Login css
+		7.10 Contact css
+		7.11 Error css
+		7.12 Profile css
+
+	---------------------------------
+	08. ECOMMERCE CSS
+	---------------------------------
+		8.1 Ecommerce Common CSS
+		8.2 Cartmini CSS
+		8.3 Cart Modal CSS
+		8.4 Category CSS
+		8.5 Banner CSS
+		8.6 Tooltip CSS
+		8.7 Featured Product CSS
+		8.8 Trending CSS
+		8.9 Product Card CSS
+		8.10 Product Card Style 2 CSS
+		8.11 Product Card Style 3 CSS
+		8.12 Product Card Style 4 CSS
+		8.13 Product Card Style 5 CSS
+		8.14 Product Details CSS
+		8.15 Product Widget CSS
+		8.16 Shop CSS
+		8.17 Filter Offcanvas CSS
+		8.18 Product Quantity CSS
+		8.19 Cart CSS
+		8.20 Order CSS
+		8.21 Checkout CSS
+		8.22 compare CSS
+		8.23 Collection CSS
+		8.24 Deal CSS
+		8.25 Side Banner CSS
+		8.26 Coupon CSS
+
+
+**********************************************/
+
+
+/*----------------------------------------*/
+/*  1.1 Theme Default
+/*----------------------------------------*/
+
+@import url($font-url);
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/*---------------------------------
+	typography css start 
+---------------------------------*/
+body {
+	font-family: var(--tp-ff-body);
+	font-size: 14px;
+	font-weight: normal;
+	color: var(--tp-text-body);
+	line-height: 26px;
+}
+
+a{
+	text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--tp-ff-heading);
+	color: var(--tp-heading-primary);
+	margin-top: 0px;
+	font-weight: 700;
+	line-height: 1.2;
+	@include tp-transition(color);
+}
+
+h1 {
+	font-size: 40px;
+}
+  
+h2 {
+font-size: 36px;
+}
+
+h3 {
+font-size: 28px;
+}
+
+h4 {
+font-size: 24px;
+}
+
+h5 {
+font-size: 20px;
+}
+
+h6 {
+font-size: 16px;
+}
+
+ul {
+	margin: 0px;
+	padding: 0px;
+}
+
+p {
+	font-family: var(--tp-ff-p);
+	font-size: 14px;
+	font-weight: 400;
+	color: var(--tp-text-body);
+	margin-bottom: 15px;
+	line-height: 26px;
+}
+
+
+a,
+button,
+p,
+input,
+select,
+textarea,
+li,
+.transition-3{
+	@extend %tp-transition-common;
+}
+
+a:not([href]):not([class]), 
+a:not([href]):not([class]):hover {
+	color: inherit;
+	text-decoration: none;
+}
+
+a:focus,
+.button:focus {
+	text-decoration: none;
+	outline: none;
+}
+
+a:focus,
+a:hover{
+	color: inherit;
+	text-decoration: none;
+}
+
+@media (min-width: 1400px){
+	.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+			max-width: 1230px;
+	}
+}
+
+a,
+button {
+	color: inherit;
+	outline: none;
+	border: none;
+	background: transparent;
+}
+
+button:hover{
+	cursor: pointer;
+}
+
+button:focus{
+    outline: 0; 
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+.capitalize {
+	text-transform: capitalize;
+}
+.cursor-pointer{
+	cursor: pointer;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
+input[type="url"],
+textarea{
+	outline: none;
+	background-color: #fff;
+	height: 56px;
+	width: 100%;
+	line-height: 56px;
+	font-size: 14px;
+	color: var(--tp-common-black);
+	padding-left: 26px;
+	padding-right: 26px;
+	border: 1px solid #E0E2E3;
+
+	@include tp-placeholder{
+		color: #95999D;
+	}
+	@include rtl{
+		text-align: right;
+	}
+
+	&:focus{
+		border-color: var(--tp-common-black);
+		&::placeholder{
+			opacity: 0;
+		}
+	}
+
+}
+
+textarea{
+	line-height: 1.4;
+	padding-top: 17px;
+	padding-bottom: 17px;
+}
+
+input[type="color"] {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background: none;
+	border: 0;
+	cursor: pointer;
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	border-radius: 50%;
+}
+
+*::-moz-selection {
+	background: var(--tp-common-black);
+	color: var(--tp-common-white);
+	text-shadow: none;
+}
+::-moz-selection {
+	background: var(--tp-common-black);
+	color: var(--tp-common-white);
+	text-shadow: none;
+}
+::selection {
+	background: var(--tp-common-black);
+	color: var(--tp-common-white);
+	text-shadow: none;
+}
+
+
+*::-moz-placeholder {
+	color: var(--tp-common-black);
+	font-size: 14px;
+	opacity: 1;
+}
+*::placeholder {
+	color: var(--tp-common-black);
+	font-size: 14px;
+	opacity: 1;
+}

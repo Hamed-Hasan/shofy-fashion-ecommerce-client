@@ -1,0 +1,273 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  7.10 Contact CSS
+/*----------------------------------------*/
+
+.#{$theme-prifix}-contact{
+    &-wrapper{
+        margin-right: 73px;
+
+        @media #{$md, $sm, $xs}{
+            margin-right: 0;
+        }
+    }
+    &-inner{
+        padding: 42px 70px 49px;
+        background: var(--tp-common-white);
+        box-shadow: 0px 30px 70px rgba(1, 15, 28, 0.1);
+
+        @media #{$xs}{
+            padding: 20px 25px 49px;
+        }
+    }
+    &-title{
+        font-size: 30px;
+        font-weight: 500;
+        margin-bottom: 35px;
+    }
+    &-input{
+        &-wrapper{
+            margin-bottom: 8px;
+        }
+        &-box{
+            position: relative;
+            &:not(:last-child){
+                margin-bottom: 34px;
+            }
+        }
+        & input{
+            height: 56px;
+            background: #FFFFFF;
+            border: 1px solid #E0E2E3;
+            font-size: 14px;
+            color: var(--tp-common-black);
+            @include tp-placeholder{
+                color: #95999D;
+            }
+        }
+        & textarea{
+            height: 165px;
+            resize: none;
+        }
+        &-title{
+            & label{
+                font-size: 14px;
+                color: var(--tp-common-black);
+                position: absolute;
+                top: -7px;
+                left: 20px;
+                padding: 0 5px;
+                background-color: var(--tp-common-white);
+                line-height: 1;
+            }
+        }
+        &-eye{
+            position: absolute;
+            right: 26px;
+            top: 50%;
+            @include transform(translateY(-50%));
+
+            & .open-eye{
+                display: none;
+            }
+
+            & span{
+                @extend %tp-transition;
+            }
+
+            &:hover{
+                cursor: pointer;
+
+                & span{
+                    color: var(--tp-common-black);
+                }
+            }
+        }
+    }
+    &-remeber{
+        & input{
+            display: none;
+            &:checked{
+                & ~ label{
+                    &::after{
+                        background-color: var(--tp-theme-primary);
+                        border-color: var(--tp-theme-primary);
+                    }
+                    &::before{
+                        visibility: visible;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        & label{
+            font-size: 15px;
+            color: #55585B;
+            position: relative;
+            padding-left: 26px;
+            z-index: 1;
+            &::after{
+                position: absolute;
+                content: '';
+                top: 4px;
+                left: 0;
+                width: 18px;
+                height: 18px;
+                line-height: 16px;
+                text-align: center;
+                border: 1px solid #C3C7C9;
+                z-index: -1;
+                @include tp-transition(all, .2s);
+            }
+            &::before{
+                position: absolute;
+                content: url('../../../img/product/icons/check.svg');
+                top: 4px;
+                left: 0;
+                width: 18px;
+                height: 18px;
+                line-height: 16px;
+                text-align: center;
+                visibility: hidden;
+                opacity: 0;
+                color: var(--tp-common-white);
+                @include tp-transition(all, .2s);
+            }
+
+            & a{
+                &:hover{
+                    color: var(--tp-theme-primary);
+                }
+            }
+
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+    &-btn{
+        font-size: 16px;
+        color: var(--tp-common-white);
+        background-color: var(--tp-common-black);
+        padding: 9px 30px;
+        display: inline-block;
+        @extend %tp-transition;
+
+        &:hover{
+            color: var(--tp-common-white);
+            background-color: var(--tp-theme-primary);
+        }
+    }
+    &-info{
+        &-wrapper{
+            margin-left: 5px;
+            padding-top: 50px;
+        }
+        &-item{
+            &:not(:last-child){
+                margin-bottom: 38px;
+            }
+        }
+        &-icon{
+            @include flexbox();
+            align-items: flex-end;
+            justify-content: flex-start;
+            margin-bottom: 18px;
+            height: 62px;
+            & span{
+                font-size: 60px;
+            }
+        }
+        &-content{
+            & p{
+                &[data-info="mail"]{
+                    color: #55585B;
+                    margin-bottom: 0;
+                }
+                &[data-info="phone"]{
+                    font-weight: 500;
+                }
+                font-size: 18px;
+                line-height: 1.44;
+                color: var(--tp-common-black);
+                & a{
+                    &:hover{
+                        color: var(--tp-theme-primary);
+                    }
+                }
+            }
+        }
+    }
+    &-social{
+        &-title{
+            font-weight: 400;
+            font-size: 18px; 
+            margin-bottom: 15px;       
+        }
+        &-icon{
+            & a{
+                display: inline-block;
+                width: 38px;
+                height: 38px;
+                line-height: 36px;
+                text-align: center;
+                border: 1px solid #E6E7E8;
+                background-color: var(--tp-common-white);
+                color: var(--tp-common-black);
+
+                &:hover{
+                    background-color: var(--tp-theme-primary);
+                    border-color: var(--tp-theme-primary);
+                    color: var(--tp-common-white);
+                }
+            }
+        }
+    }
+}
+
+/* map css start */
+
+.#{$theme-prifix}-map{
+    &-wrapper{
+        position: relative;
+    }
+    &-hotspot{
+        position: absolute;
+        top: 50%;
+        left: 45%;
+        z-index: 1;
+        & .tp-hotspot{
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            box-shadow: 0px 4px 10px rgba(8, 41, 72, 0.2);
+            z-index: auto;
+            & svg{
+                @include transform(translate(0px, -8px));
+            }
+
+            &::after,
+            &::before{
+                border: 1px solid rgba($color: $black, $alpha: .04);
+                background-color: rgba($color: $white, $alpha: .6);
+                backdrop-filter: blur(3px);
+                
+                
+            }
+            &::before{
+                display: none;
+            }
+        }
+    }
+    &-iframe{
+        width: 100%;
+        height: 360px;
+
+        & iframe{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

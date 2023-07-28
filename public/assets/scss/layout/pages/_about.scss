@@ -1,0 +1,68 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  7.2 About css
+/*----------------------------------------*/
+
+
+.#{$theme-prifix}-about{
+    &-wrapper{
+        @media #{$lg}{
+            padding-left: 35px;
+            padding-top: 15px;
+            padding-right: 0;
+        }
+        @media #{$md, $sm, $xs}{
+            padding-left: 0;
+            padding-right: 0;
+        }
+        @media #{$xs}{
+            margin-right: 0;
+            margin-top: 50px;
+        }
+    }
+    &-thumb{
+        & img{
+            width: 100%;
+            height: 100%;
+        }
+        &-2{
+            position: absolute;
+            bottom: -60px;
+            right: -165px;
+
+            @media #{$md}{
+                right: 0;
+            }
+            @media #{$sm}{
+                right: -30px;
+            }
+            @media #{$xs}{
+                right: 0;
+            }
+
+            & img{
+                @media #{$xs}{
+                    width: 70%;
+                    height: 70%;
+                }
+            }
+        }
+    }
+    &-content{
+        @media #{$md, $sm, $xs}{
+            padding-left: 0;
+        }
+        & p{
+            font-size: 16px;
+            line-height: 1.62;
+            margin-bottom: 40px;
+
+            @media #{$sm, $xs}{
+                & br{
+                    display: none;
+                }
+            }
+        }
+    }
+}

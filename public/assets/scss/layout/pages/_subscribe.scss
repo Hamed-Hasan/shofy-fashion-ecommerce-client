@@ -1,0 +1,162 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  7.4 Subscribe CSS
+/*----------------------------------------*/
+
+.#{$theme-prifix}-subscribe{
+    $self: &;
+    &-square{
+        #{$self}{
+            &-input{
+                & input{
+                    border-radius: 0;
+                }
+                & button{
+                    border-radius: 0;
+                }
+            }
+        }
+    }
+    &-content{
+        @media #{$md, $sm, $xs}{
+            margin-bottom: 25px;
+        }
+        & span{
+            font-family:  var(--tp-ff-roboto);
+            font-weight: 500;
+            font-size: 16px;
+            text-transform: uppercase;
+            color: var(--tp-common-white);
+        }
+    }
+    &-title{
+        font-family: var(--tp-ff-roboto);
+        font-weight: 800;
+        font-size: 40px;
+        color: var(--tp-common-white);
+        margin-bottom: 0;
+        line-height: 1;
+
+        @media #{$xs}{
+            font-size: 37px;
+        }
+    }
+    &-input{
+        position: relative;
+        & input{
+            width: 100%;
+            height: 60px;
+            background-color: var(--tp-common-white);
+            box-shadow: 0px 1px 2px rgba(1, 15, 28, 0.1);
+            border-radius: 8px;
+            font-family: var(--tp-ff-roboto);
+            border: 0;
+            padding-right: 155px;
+            @include tp-placeholder{
+                font-family: var(--tp-ff-roboto);
+                font-size: 14px;
+                color: var(--tp-text-4);
+            }
+        }
+
+        & button{
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-family: var(--tp-ff-roboto);
+            font-weight: 500;
+            font-size: 14px;
+            color:  var(--tp-common-white);
+            box-shadow: 0px 1px 2px rgba(1, 15, 28, 0.1);
+            border-radius: 0px 8px 8px 0px;
+            padding: 17px 40px;
+            background-color: var(--tp-common-black);
+
+            @media #{$xs}{
+                position: relative;
+                top: 15px;
+            }
+        }
+    }
+    &-shape{
+        &-1{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            mix-blend-mode: luminosity;
+            opacity: .4;
+            max-width: 100%;
+        }
+        &-2{
+            position: absolute;
+            top: 53%;
+            left: 10%;
+            mix-blend-mode: luminosity;
+            opacity: .4;
+            z-index: -1;
+        }
+        &-3{
+            position: absolute;
+            bottom: 10%;
+            left: 12%;
+            z-index: -1;
+            mix-blend-mode: luminosity;
+            opacity: .4;
+            z-index: -1;
+        }
+        &-4{
+            position: absolute;
+            top: -5%;
+            right: 12%;
+            z-index: -1;
+        }
+    }
+    &-plane{
+        position: absolute;
+        right: 17%;
+        top: 24%;
+        width: 399px;
+        height: 110px;
+        z-index: -2;
+
+        @media #{$md}{
+            right: 25%;
+            top: 20%;
+        }
+        @media #{$sm}{
+            right: 24%;
+            top: 16%;
+        }
+        @media #{$xs}{
+            width: 250px;
+        }
+        &-shape{
+            position: absolute;
+            top: -34%;
+            left: -6%;
+
+            @media #{$xs}{
+                top: -70%;
+            }
+            
+        }
+        & svg{
+            position: absolute;
+            top: 0;
+            right: 0;
+            @media #{$xs}{
+                top: -38%;
+                right: 20%;
+            }
+
+            & path{
+                stroke-dasharray: 4;
+                stroke-dashoffset: 0;
+                -webkit-animation: tp-svg-line 30s linear forwards infinite;
+                animation: tp-svg-line 30s linear forwards infinite;
+            }
+        }
+    }
+}

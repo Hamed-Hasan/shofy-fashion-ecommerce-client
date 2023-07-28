@@ -1,0 +1,419 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  8.23 Collection CSS
+/*----------------------------------------*/
+
+.#{$theme-prifix}-collection{
+    $self : &;
+    &-item{
+        &:hover{
+            #{$self}{
+                &-thumb{
+                    @include transform(scale(1.05));
+                }
+            }
+
+        }
+    }
+    &-height{
+        min-height: 700px;
+
+        @media #{$md}{
+            min-height: 500px;
+        }
+        @media #{$sm}{
+            min-height: 600px;
+        }
+        @media #{$xs}{
+            min-height: 400px;
+        }
+    }
+    &-thumb{
+        @extend %bg-thumb;
+        z-index: -1;
+
+        &.has-overlay{
+            &::after{
+                position: absolute;
+                content: '';
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba($color: $black, $alpha: .1);
+            }
+        }
+    }
+    &-title{
+        font-weight: 500;
+        font-size: 50px;
+        line-height: 1;
+        margin-bottom: 34px;
+
+        @media #{$md}{
+            font-size: 35px;
+        }
+
+        @media #{$xs}{
+            font-size: 32px;
+        }
+
+        & a{
+            background-image: linear-gradient($black, $black), linear-gradient($black, $black);
+            background-size: 0% 2px, 0 2px;
+            background-position: 100% 100%, 0 80%;
+            background-repeat: no-repeat;
+            transition: background-size 0.4s linear;
+        }
+
+        &:hover{
+            & a{
+                background-size: 0 2px, 100% 2px;
+            }
+        }
+        &-1{
+            font-weight: 600;
+            font-size: 44px;
+            line-height: 1;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            color: var(--tp-common-white);
+
+            @media #{$md}{
+                font-size: 35px;
+            }
+
+            @media #{$xs}{
+                font-size: 30px;
+            }
+            
+            & a{
+                background-image: linear-gradient($white, $white), linear-gradient($white, $white);
+                background-size: 0% 1px, 0 1px;
+                background-position: 100% 100%, 0 80%;
+                background-repeat: no-repeat;
+                transition: background-size 0.4s linear;
+            }
+
+            &:hover{
+                & a{
+                    background-size: 0 1px, 100% 1px;
+                }
+            }
+        }
+    }
+    &-content{
+        position: absolute;
+        top: 55px;
+        left: 55px;
+        right: 55px;
+        word-wrap: break-word;
+        @media #{$md, $xs}{
+            top: 35px;
+            left: 30px;
+            right: 30px;
+        }
+        & span{
+            font-size: 16px;
+            color: var(--tp-common-black);
+            display: inline-block;
+            margin-bottom: 9px;
+        }
+
+        &-1{
+            position: absolute;
+            bottom: 40px;
+            left: 45px;
+            right: 45px;
+            word-wrap: break-word;
+            @media #{$md, $xs}{
+                bottom: 30px;
+                left: 30px;
+                right: 30px;
+            }
+        }
+    }
+    &-btn{
+        & .tp-btn{
+            font-size: 14px;
+            background-color: var(--tp-common-white);
+            border-color: var(--tp-common-white);
+            color: var(--tp-common-black);
+            padding: 6px 19px;
+            &:hover{
+                background-color: var(--tp-theme-brown);
+                border-color: var(--tp-theme-brown);
+                color: var(--tp-common-white);
+            }
+
+            @extend %tp-svg-y-1;
+        }
+
+        &-1{
+            & .tp-link-btn-line{
+                color: var(--tp-common-white);
+                letter-spacing: 0.3em;
+                &::after{
+                    background-color: var(--tp-common-white);
+                }
+            }
+        }
+    }
+    &-offer-wrapper{
+        padding-left: 33px;
+       & p{
+            font-size: 18px;
+            line-height: 1.11;
+            color: var(--tp-common-black);
+
+            & span{
+                color: #0989FF;
+            }
+       }
+    }
+    &-countdown{
+        .tp-product-countdown{
+            background: var(--tp-common-white);
+            border: 1px solid #DDE0E3;
+            box-shadow: 0px 1px 2px rgba(1, 15, 28, 0.1);
+            padding: 4px 14px;
+            height: 50px;
+            &:not(:last-child){
+                margin-right: 4px;
+            }
+
+            &.has-second{
+                width: 50px;
+                height: 50px;
+            }
+            & ul{
+                & li{
+                    width: inherit;
+                    height: inherit;
+                    @extend %tp-ff-jost;
+                    font-weight: 500;
+                    font-size: 10px;
+                    line-height: 8px;
+                    text-align: center;
+                    text-transform: uppercase;
+                    color: var(--tp-text-2);
+                    border: none;
+                    border-radius: 0;
+                    position: relative;
+
+                    &:not(:last-child){
+                        padding-right: 17px;
+                        margin-right: 9px;
+                        &::after{
+                            position: absolute;
+                            content: '\3a';
+                            top: 50%;
+                            right: 0;
+                            font-size: 14px;
+                            @extend %tp-ff-fontawesome;
+                            font-weight: 700;
+                            color: var(--tp-common-black);
+                            @extend %translateY1_2;
+                        }
+                    }
+                    & span{
+                        @extend %tp-ff-jost;
+                        font-weight: 500;
+                        font-size: 22px;
+                        line-height: 14px;
+                        color: var(--tp-common-black);
+                        margin-bottom: 4px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*home jewllery*/
+.#{$theme-prifix}-collection{
+    &-inner-4{
+        @media #{$lg, $md}{
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+        @media #{$sm, $xs}{
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        @media #{$xs}{
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+    &-subtitle-4{
+        font-size: 14px;
+        line-height: 1;
+        letter-spacing: 0.2em;
+        display: inline-block;
+        color: var(--tp-common-black);
+        margin-bottom: 25px;
+    }
+    &-thumb-banner-4{
+        margin-bottom: 22px;
+        & a {
+            & img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    &-title-4{
+        font-weight: 500;
+        font-size: 30px;
+        margin-bottom: 3px;
+
+        & a{
+            &:hover{
+                color: var(--tp-theme-brown);
+            }
+        }
+    }
+    &-side-text{
+        position: absolute;
+        right: 40px;
+        top: 60px;
+
+        @media #{$lg}{
+            right: 10px;
+        }
+        @media #{$sm}{
+            right: 0;
+        }
+    }
+    &-thumb{
+        &-wrapper-4{
+            height: 100%;
+            @media #{$md, $sm, $xs}{
+                min-height: 600px;
+            }
+        }
+        &-4{
+            @extend %bg-thumb;
+        }
+        &-info-4{
+            position: absolute;
+            top: 55px;
+            left: 60px;
+            right: 60px;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 1;
+            letter-spacing: 0.04em;
+            color: var(--tp-common-white);
+            display: inline-block;
+            z-index: 1;
+
+            @media #{$xs}{
+                line-height: 1.3;
+                left: 30px;
+                top: 35px;
+                right: 30px;
+            }
+        }
+    }
+    &-hotspot{
+        $hot: &;
+        &-1{
+            top: 49%;
+            left: 28%;
+
+            @media #{$sm}{
+                top: 49%;
+                left: 11%;
+            }
+        }
+        &-2{
+            bottom: 6%;
+            right: 40%;
+        }
+
+        &-item{
+            width: 44px;
+            position: absolute;
+            &:hover{
+
+                #{$hot}{
+                    &-content{
+                        visibility: visible;
+                        opacity: 1;
+                        @include transform(translate(-37%, 55px));
+
+                        &.on-top{
+                            @include transform(translate(-37%, -110%));
+                            
+                        }
+                    }
+                }
+            }
+        }
+        &-content{
+            background-color: var(--tp-common-white);
+            position: relative;
+            min-width: 165px;
+            padding: 15px 20px;
+            @include transform(translate(-37%, 60px));
+            transform-origin: top center;
+            visibility: hidden;
+            opacity: 0;
+            @extend %tp-transition;
+            text-align: center;
+            &::after{
+                position: absolute;
+                content: "";
+                left: 0;
+                top: 0;
+                width: 14px;
+                height: 14px;
+                background-color: var(--tp-common-white);
+                top: 0;
+                left: 50%;
+                @include transform(translate(-50%, -50%) rotate(45deg));
+            }
+
+            & p{
+                line-height: 1.3;
+                margin-bottom: 0;
+                margin-top: 6px;
+            }
+
+            &.on-top{
+                @include transform(translate(-37%, -120%));
+                
+                &::after{
+                    top: auto;
+                    bottom: -13px;
+                }
+            }
+        }
+        &-title{
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 0;
+        }
+    }
+    &-btn-4{
+        & .tp-link-btn-line-2{
+            &:hover{
+                color: var(--tp-theme-brown);
+
+                &::after{
+                    background-color: var(--tp-theme-brown);
+                }
+                & i{
+                    @include transform(translateX(3px))
+                }
+                & svg{
+                    @include transform(translateX(3px) translateY(-1px));
+                }
+            }
+        }
+    }
+}

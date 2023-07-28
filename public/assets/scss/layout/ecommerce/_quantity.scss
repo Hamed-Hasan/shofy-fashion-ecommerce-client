@@ -1,0 +1,58 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  8.18 Product Quantity CSS
+/*----------------------------------------*/
+
+.tp-product-quantity{
+	width: 100px;
+	position: relative;
+    border-radius: 20px;
+}
+
+.tp-cart-plus,
+.tp-cart-minus{
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+	color: var(--tp-common-black);
+	@extend %tp-transition;
+	position: absolute;
+	top: 50%;
+	left: 16px;
+	@include transform(translateY(-50%));
+
+	& svg{
+		@include transform(translateY(-2px));
+	}
+    &:hover{
+        cursor: pointer;
+        color: var(--tp-theme-1);
+    }
+
+	&.tp-cart-plus{
+		left: auto;
+		right: 16px;
+
+		&::after{
+			left: 0;
+			right: auto;
+		}
+	}
+}
+
+.tp-cart-input[type="text"]{
+    height:34px;
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid #DADCE0;
+	background-color: var(--tp-common-white);
+	padding: 0 30px;
+    border-radius: 20px;
+	@include rtl{
+		text-align: center;
+	}
+    &:focus{
+        outline: none;
+    }
+} 

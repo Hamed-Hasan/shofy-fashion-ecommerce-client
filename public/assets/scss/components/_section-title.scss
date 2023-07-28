@@ -1,0 +1,229 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  2.15 Section Title
+/*----------------------------------------*/
+
+.#{$theme-prifix}-section{
+    &-title{
+        @extend %tp-ff-roboto;
+        font-size: 36px;
+        color: var(--tp-heading-secondary);
+        position: relative;
+        z-index: 1;
+
+        @media #{$xl}{
+            font-size: 45px;
+        }
+
+        @media #{$lg}{
+            font-size: 35px;
+        }
+
+        @media #{$md, $sm, $xs}{
+            font-size: 30px;
+        }
+
+        & svg{
+            position: absolute;
+            left: 0;
+            bottom: -12px;
+            z-index: -1;
+            & path{
+                stroke: var(--tp-pink-3);
+            }
+        }
+
+        &-sm{
+            font-size: 24px;
+
+            & svg{
+                left: -3px;
+                bottom: -3px;
+            }
+        }
+
+        &-pre{
+            font-size: 14px;
+            font-weight: var(--tp-fw-bold);
+            color: var(--tp-theme-primary);
+            display: inline-block;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.#{$theme-prifix}-section{
+    &-title-2{
+        font-weight: 500;
+        font-size: 44px;
+        
+        @media #{$xs}{
+            font-size: 35px;
+        }
+    }
+    &-title-pre-2{
+        font-weight: 400;
+        font-size: 18px;        
+        color: var(--tp-theme-secondary);
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        & svg{
+            position: absolute;
+            bottom: -8px;
+            left: 26px;
+            z-index: -1;
+        }
+    }
+}
+
+.#{$theme-prifix}-section{
+    &-title-3{
+        font-weight: 500;
+        font-size: 44px;      
+        @media #{$xs}{
+            font-size: 35px;
+        }
+    }
+    &-title-pre-3{
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 14px;      
+        color: var(--tp-theme-brown);
+        display: inline-block;
+    }
+}
+
+.#{$theme-prifix}-section{
+    &-title-wrapper-4{
+        & p{
+            font-size: 18px;
+        }
+    }
+    &-title-4{
+        font-weight: 500;
+        font-size: 44px;
+        line-height: 1.12;
+        margin-bottom: 5px;
+        @media #{$xs}{
+            font-size: 35px;
+        }
+        &.fz-50{
+            font-size: 50px;
+
+            @media #{$lg}{
+                font-size: 33px;
+            }
+
+            @media #{$xs}{
+                font-size: 41px;
+            }
+        }
+    }
+    &-title-pre-4{
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 14px; 
+        color: var(--tp-theme-brown);
+        display: inline-block;
+        margin-bottom: 11px;
+    }
+    
+}
+
+
+.#{$theme-prifix}-section{
+    &-title-5{
+        font-weight: 500;
+        font-size: 44px;
+        
+        @media #{$sm}{
+            font-size: 40px;
+        }
+        
+        @media #{$xs}{
+            font-size: 35px;
+        }
+    }
+    &-title-pre-5{
+        font-weight: 400;
+        font-size: 18px;        
+        color: var(--tp-theme-green);
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        margin-bottom: 12px;
+        & svg{
+            position: absolute;
+            bottom: -8px;
+            left: 26px;
+            z-index: -1;
+        }
+
+        &.has-mb-0{
+            margin-bottom: 0;
+        }
+    }
+}
+
+.#{$theme-prifix}-section{
+    &-title-6{
+        font-size: 44px;
+        font-weight: 500;
+        position: relative;
+        z-index: 1;
+
+        @media #{$xl}{
+            font-size: 45px;
+        }
+
+        @media #{$lg}{
+            font-size: 35px;
+        }
+
+        @media #{$md, $sm, $xs}{
+            font-size: 30px;
+        }
+
+
+    }
+    &-title-pre-6{
+        font-size: 18px;
+        color: var(--tp-theme-primary);
+        display: inline-block;
+        text-transform: capitalize;
+    }
+}
+
+.#{$theme-prifix}-section{
+    &-title-7{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 1.07;
+        position: relative;
+        z-index: 1;
+
+        @media #{$xl}{
+            font-size: 45px;
+        }
+
+        @media #{$lg}{
+            font-size: 35px;
+        }
+
+        @media #{$md, $sm, $xs}{
+            font-size: 30px;
+        }
+
+
+    }
+    &-title-pre-7{
+        font-size: 20px;
+        color: var(--tp-theme-primary);
+        display: inline-block;
+        text-transform: capitalize;
+        font-weight: 400;
+        margin-bottom: 10px;
+    }
+}
