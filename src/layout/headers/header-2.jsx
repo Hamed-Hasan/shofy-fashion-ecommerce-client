@@ -41,7 +41,7 @@ const HeaderTwo = ({ style_2 = false }) => {
                       <a href="tel:402-763-282-46">
                         <span>
                           <PhoneTwo />
-                        </span> +(402) 763 282 46
+                        </span> +(966) 595 035 008
                       </a>
                     </div>
                   </div>
