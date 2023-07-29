@@ -7,7 +7,7 @@ export const authApi = apiSlice.injectEndpoints({
     // createPaymentIntent
     createPaymentIntent: builder.mutation({
       query: (data) => ({
-        url: "api/order/create-payment-intent",
+        url: "https://shofy-backend.vercel.app/api/order/create-payment-intent",
         method: "POST",
         body: data,
       }),
@@ -25,7 +25,7 @@ export const authApi = apiSlice.injectEndpoints({
     // saveOrder
     saveOrder: builder.mutation({
       query: (data) => ({
-        url: "api/order/saveOrder",
+        url: "https://shofy-backend.vercel.app/api/order/saveOrder",
         method: "POST",
         body: data,
       }),
@@ -46,13 +46,13 @@ export const authApi = apiSlice.injectEndpoints({
     }),
     // getUserOrders
     getUserOrders: builder.query({
-      query: () => `/api/user-order`,
+      query: () => `https://shofy-backend.vercel.app/api/user-order`,
       providesTags:["UserOrders"],
       keepUnusedDataFor: 600,
     }),
     // getUserOrders
     getUserOrderById: builder.query({
-      query: (id) => `/api/user-order/${id}`,
+      query: (id) => `https://shofy-backend.vercel.app/api/user-order/${id}`,
       providesTags: (result, error, arg) => [{ type: "UserOrder", id: arg }],
       keepUnusedDataFor: 600,
     }),

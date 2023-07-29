@@ -7,7 +7,7 @@ export const authApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     registerUser: builder.mutation({
       query: (data) => ({
-        url: "api/user/signup",
+        url: "https://shofy-backend.vercel.app/api/user/signup",
         method: "POST",
         body: data,
       }),
@@ -15,7 +15,7 @@ export const authApi = apiSlice.injectEndpoints({
     // signUpProvider
     signUpProvider: builder.mutation({
       query: (token) => ({
-        url: `api/user/register/${token}`,
+        url: `https://shofy-backend.vercel.app/api/user/register/${token}`,
         method: "POST",
       }),
 
@@ -46,7 +46,7 @@ export const authApi = apiSlice.injectEndpoints({
     // login
     loginUser: builder.mutation({
       query: (data) => ({
-        url: "api/user/login",
+        url: "https://shofy-backend.vercel.app/api/user/login",
         method: "POST",
         body: data,
       }),
@@ -77,7 +77,7 @@ export const authApi = apiSlice.injectEndpoints({
     }),
     // get me
     getUser: builder.query({
-      query: () => "api/user/me",
+      query: () => "https://shofy-backend.vercel.app/api/user/me",
 
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
         try {
@@ -94,7 +94,7 @@ export const authApi = apiSlice.injectEndpoints({
     }),
     // confirmEmail
     confirmEmail: builder.query({
-      query: (token) => `api/user/confirmEmail/${token}`,
+      query: (token) => `https://shofy-backend.vercel.app/api/user/confirmEmail/${token}`,
 
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
         try {
@@ -123,7 +123,7 @@ export const authApi = apiSlice.injectEndpoints({
     // reset password
     resetPassword: builder.mutation({
       query: (data) => ({
-        url: "api/user/forget-password",
+        url: "https://shofy-backend.vercel.app/api/user/forget-password",
         method: "PATCH",
         body: data,
       }),
@@ -131,7 +131,7 @@ export const authApi = apiSlice.injectEndpoints({
     // confirmForgotPassword
     confirmForgotPassword: builder.mutation({
       query: (data) => ({
-        url: "api/user/confirm-forget-password",
+        url: "https://shofy-backend.vercel.app/api/user/confirm-forget-password",
         method: "PATCH",
         body: data,
       }),
@@ -139,7 +139,7 @@ export const authApi = apiSlice.injectEndpoints({
     // change password
     changePassword: builder.mutation({
       query: (data) => ({
-        url: "api/user/change-password",
+        url: "https://shofy-backend.vercel.app/api/user/change-password",
         method: "PATCH",
         body: data,
       }),
@@ -147,7 +147,7 @@ export const authApi = apiSlice.injectEndpoints({
     // updateProfile password
     updateProfile: builder.mutation({
       query: ({ id, ...data }) => ({
-        url: `/api/user/update-user/${id}`,
+        url: `https://shofy-backend.vercel.app/api/user/update-user/${id}`,
         method: "PUT",
         body: data,
       }),
