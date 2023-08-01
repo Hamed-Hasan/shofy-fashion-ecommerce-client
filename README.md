@@ -107,11 +107,11 @@ To get started with Shofy, follow these steps:
 
 ## Client Side Repo
 
-[Shofy Client Side Repo](https://github.com/Hamed-Hasan/shofy-fashion-ecommerce-client.git)
+[Shofy fashion Client Side Repo](https://github.com/Hamed-Hasan/shofy-fashion-ecommerce-client.git)
 
 ## Server Side Repo
 
-[Shofy Server Side Repo](https://github.com/Hamed-Hasan/shofy-fashion-ecommerce-backend.git)
+[Shofy fashion Server Side Repo](https://github.com/Hamed-Hasan/shofy-fashion-ecommerce-backend.git)
 
 ## Sources and Credits
 
