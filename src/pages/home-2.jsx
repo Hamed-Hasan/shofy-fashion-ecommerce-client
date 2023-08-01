@@ -35,7 +35,7 @@ const HomeTwo = () => {
       <BlogArea/>
       <InstagramArea/>
       <CtaArea/>
-      <Footer style_2={true}/>
+      <Footer/>
     </Wrapper>
   );
 };
