@@ -1,37 +1,41 @@
 import React from 'react';
 import SEO from '@/components/seo';
-import HeaderTwo from '@/layout/headers/header-2';
 import Wrapper from '@/layout/wrapper';
-import FashionBanner from '@/components/banner/fashion-banner';
-import FashionCategory from '@/components/categories/fashion-category';
-import PopularProducts from '@/components/products/fashion/popular-products';
-import ProductArea from '@/components/products/fashion/product-area';
-import WeeksFeatured from '@/components/products/fashion/weeks-featured';
-import TrendingProducts from '@/components/products/fashion/trending-products';
-import BestSellerProducts from '@/components/products/fashion/best-seller-products';
-import FashionTestimonial from '@/components/testimonial/fashion-testimonial';
-import BlogArea from '@/components/blog/fashion/blog-area';
-import FeatureAreaTwo from '@/components/features/feature-area-2';
-import InstagramAreaTwo from '@/components/instagram/instagram-area-2';
-import Footer from '@/layout/footers/footer';
+import Header from "@/layout/headers/header";
+import ElectronicCategory from "@/components/categories/electronic-category";
+import HomeHeroSlider from "@/components/hero-banner/home-hero-slider";
+import FeatureArea from "@/components/features/feature-area";
+import ProductArea from "@/components/products/electronics/product-area";
+import BannerArea from "@/components/banner/banner-area";
+import OfferProducts from "@/components/products/electronics/offer-products";
+import ProductGadgetArea from "@/components/products/electronics/product-gadget-area";
+import ProductBanner from "@/components/products/electronics/product-banner";
+import ProductSmArea from "@/components/products/electronics/product-sm-area";
+import NewArrivals from "@/components/products/electronics/new-arrivals";
+import BlogArea from "@/components/blog/electronic/blog-area";
+import InstagramArea from "@/components/instagram/instagram-area";
+import CtaArea from "@/components/cta/cta-area";
+import Footer from "@/layout/footers/footer";
 
 const HomeTwo = () => {
   return (
     <Wrapper>
       <SEO pageTitle="Home Two" />
-      <HeaderTwo/>
-      <FashionBanner/>
-      <FashionCategory/>
-      <PopularProducts/>
+      <Header/>
+      <HomeHeroSlider/>
+      <ElectronicCategory/>
+      <FeatureArea/>
       <ProductArea/>
-      <WeeksFeatured/>
-      <TrendingProducts/>
-      <BestSellerProducts/>
-      <FashionTestimonial/>
+      <BannerArea/>
+      <OfferProducts/>
+      <ProductGadgetArea/>
+      <ProductBanner/>
+       <NewArrivals/>
+      <ProductSmArea/>
       <BlogArea/>
-      <FeatureAreaTwo/>
-      <InstagramAreaTwo/>
-      <Footer style_2={true} />
+      <InstagramArea/>
+      <CtaArea/>
+      <Footer style_2={true}/>
     </Wrapper>
   );
 };
