@@ -7,6 +7,8 @@ import { useGetProductTypeQuery } from "@/redux/features/productApi";
 import { HomeNewArrivalPrdLoader } from "@/components/loader";
 import ErrorMsg from "@/components/common/error-msg";
 import ProductItem from "@/components/products/electronics/product-item";
+import blogData from "@/data/blog-data";
+import BlogItem from "@/components/blog/fashion/blog-item";
 
 const Menus = () => {
   const { data: products, isError, isLoading } = useGetProductTypeQuery({
@@ -14,6 +16,8 @@ const Menus = () => {
     query: 'new=true'
   });
   
+  const blogs = blogData.filter(b => b.blog === 'fashion');
+
   // decide what to render
   let content = null;
   
@@ -54,9 +58,16 @@ const Menus = () => {
           <li key={menu.id} className="has-dropdown has-mega-menu">
             <Link href={menu.link}>{menu.title}</Link>
             <div className="home-menu tp-submenu tp-mega-menu">
-            <div className="tp-product-arrival-slider fix">
-    {content}
-  </div>
+            {/* <div className="tp-product-arrival-slider fix">
+              {content}
+            </div> */}
+               <div className="row">
+            {blogs.map(blog => (
+              <div key={blog.id} className="col-xl-4 col-lg-4 col-md-6">
+                <BlogItem blog={blog} />
+              </div>
+            ))}
+          </div>
                 {/* <OfferCouponArea/> */}
               <div className="row row-cols-1 row-cols-lg-4 row-cols-xl-4">
                 {menu.home_pages.map((home, i) => (
