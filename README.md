@@ -99,11 +99,11 @@ To get started with Shofy, follow these steps:
 
 ## Client Side Live Link
 
-[Shofy Client Side Live Link](https://shofy-front-end.vercel.app)
+[Shofy Fashion Client Side Live Link](https://shofy-fashion-ecommerce-client.vercel.app)
 
 ## Server Side Live Link
 
-[Shofy Server Side Live Link](https://shofy-backend.vercel.app)
+[Shofy Fashion Server Side Live Link](https://shofy-backend.vercel.app)
 
 ## Client Side Repo
 
